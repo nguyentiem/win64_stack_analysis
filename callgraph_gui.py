@@ -18,23 +18,47 @@ Tinh nang UI:
     (callee) cach nhau boi dau ',' -> tao nhieu canh caller->callee_i.
     Dung cho cac truong hop AST/points-to khong the thay (vi du: dang ky
     callback qua macro la, qua IPC/message queue, qua bang lookup dong...).
+    Neu ten ham bi trung (static cung ten o nhieu file), nhap dang
+    "ten_ham@duong_dan_file" (chi can 1 doan CUOI duong dan la du, khong
+    can go het duong dan tuyet doi) de chi ro ham o file nao.
   - Xuat JSON: moi canh gom {caller: {name, file}, callee: {name, file},
     type}. "file" la duong dan file NOI HAM DO DUOC DINH NGHIA (khong phai
     noi no duoc goi), lay tu FUNCTION_DECL definition thuc su trong AST.
     Neu 1 ten ham (thuong la link thu cong) khong khop ham nao da parse,
     file se la null - UI se canh bao truong hop nay o log.
 
+DINH DANH HAM (quan trong - tranh gop nham cac ham static trung ten):
+  Ham C khong-static (external linkage) ve nguyen tac chi co 1 dinh nghia
+  duy nhat trong toan chuong trinh, nen dung TEN lam dinh danh la du.
+  Nhung ham "static" (internal linkage) chi co pham vi trong 1 file/TU -
+  2 file khac nhau hoan toan co the co 2 ham static TRUNG TEN nhung la
+  2 THUC THE KHAC NHAU (vd 2 ham "handler" static rieng trong uart.c va
+  spi.c). Neu chi dung ten lam key (nhu ban dau) thi 2 ham nay se bi GOP
+  LAM MOT trong known_functions/direct_edges/points_to -> callgraph sai.
+  De sua, moi ham duoc gan 1 "identity key":
+    - Ham static : (duong_dan_file_dinh_nghia, ten_ham)
+    - Ham khac   : (None, ten_ham)
+  Viec static hay khong duoc xac dinh qua cursor.linkage (thong tin ngu
+  nghia tu clang, xem ham linkage_is_internal) chu KHONG doan qua token
+  'static' trong text - cach nay dung ke ca khi tu khoa bi che boi macro
+  hoac dat khong theo thu tu thong thuong. Dung tuple (file, ten) thay vi
+  noi chuoi "file__ten" de khoi phai lo ky tu '_' trong ten ham/duong dan
+  gay nham lan khi can tach nguoc lai - ten hien thi va file duoc luu rieng
+  trong known_functions[key] = {"name":.., "file":..}.
+
 Chay: python3 callgraph_gui.py
 Yeu cau: pip install libclang --break-system-packages
          (tkinter thuong co san trong python3; neu thieu: apt-get install
           python3-tk)
+         Luu y: can ban libclang python binding co ho tro thuoc tinh
+         Cursor.linkage (cac ban tuong doi gan day deu co).
 """
 
 import glob
 import json
 import os
 from collections import defaultdict
-from typing import Optional
+from typing import Optional, Tuple
 
 import tkinter as tk
 from tkinter import ttk, filedialog, messagebox
@@ -50,8 +74,13 @@ import clang.cindex as ci
 
 # =============================================================================
 # ENGINE: phan tich AST + points-to (giong ban CLI truoc, co bo sung tracking
-# duong dan file dinh nghia cho tung ham, va gop them "manual_edges").
+# duong dan file dinh nghia cho tung ham, dinh danh ham theo linkage de
+# khong gop nham cac ham static trung ten o file khac nhau, va them
+# "manual_edges").
 # =============================================================================
+
+FuncKey = Tuple[Optional[str], str]  # (duong_dan_file neu la static else None, ten_ham)
+
 
 def is_function_pointer_type(t: ci.Type) -> bool:
     t = t.get_canonical()
@@ -59,6 +88,40 @@ def is_function_pointer_type(t: ci.Type) -> bool:
         pointee = t.get_pointee().get_canonical()
         return pointee.kind in (ci.TypeKind.FUNCTIONPROTO, ci.TypeKind.FUNCTIONNOPROTO)
     return False
+
+
+def linkage_is_internal(cursor: ci.Cursor) -> bool:
+    """True neu cursor la 1 khai bao co internal linkage (tuc duoc khai bao
+    voi 'static' o pham vi file). Dung cursor.linkage (ngu nghia tu clang)
+    thay vi doan token 'static' trong source vi token co the bi che boi
+    macro hoac thu tu qualifier khac thuong."""
+    try:
+        return cursor.linkage == ci.LinkageKind.INTERNAL
+    except Exception:
+        return False
+
+
+def function_identity(cursor: ci.Cursor) -> Tuple[FuncKey, str, Optional[str]]:
+    """Tra ve (key, ten_ham, duong_dan_file) dinh danh DUY NHAT cho 1 ham,
+    dung cho ca 2 truong hop goi:
+      - cursor la 1 FUNCTION_DECL definition (tu collect_functions)
+      - cursor la 1 'referenced' cursor lay tu 1 DECL_REF_EXPR tai call site
+        (co the chi la 1 khai bao/prototype, chua chac da la definition)
+    Dung get_definition() de quy ve dung cursor DINH NGHIA thuc su (phong
+    truong hop ham duoc forward-declare truoc, dinh nghia sau trong cung
+    file) - nho vay file/ten lay duoc luon la noi ham THUC SU duoc dinh
+    nghia, dung nhat quan giua pass thu thap dinh nghia va pass phan giai
+    call site.
+    """
+    def_cursor = cursor.get_definition() or cursor
+    name = def_cursor.spelling
+    loc = def_cursor.location
+    file = loc.file.name if loc.file else None
+    if file:
+        file = os.path.abspath(file)
+    if linkage_is_internal(def_cursor):
+        return (file, name), name, file
+    return (None, name), name, file
 
 
 def strip_wrappers(cursor: ci.Cursor) -> ci.Cursor:
@@ -81,12 +144,17 @@ def strip_wrappers(cursor: ci.Cursor) -> ci.Cursor:
     return cursor
 
 
-def referenced_function_name(cursor: ci.Cursor, known_functions) -> Optional[str]:
+def referenced_function_name(cursor: ci.Cursor, known_functions) -> Optional[FuncKey]:
+    """Neu bieu thuc tham chieu toi 1 ham DA BIET (co trong known_functions),
+    tra ve KEY dinh danh cua ham do (khong phai raw spelling nua) - de 2 ham
+    static trung ten o 2 file khac nhau khong bi coi la "cung 1 ham"."""
     cursor = strip_wrappers(cursor)
     if cursor.kind == ci.CursorKind.DECL_REF_EXPR:
         ref = cursor.referenced
-        if ref is not None and ref.spelling in known_functions:
-            return ref.spelling
+        if ref is not None:
+            key, _, _ = function_identity(ref)
+            if key in known_functions:
+                return key
     return None
 
 
@@ -100,13 +168,18 @@ def symbol_key_for_lvalue(cursor: ci.Cursor) -> Optional[str]:
                 # "at_parser_handler_t at_parser_handler" trong
                 # at_command_request(). Neu chi dung key "var:<ten_tham_so>"
                 # thi 2 ham khac nhau co tham so trung ten se bi GOP CHUNG
-                # 1 key -> sai. Nen gan key theo CA ten ham dang chua tham
-                # so do (ref.semantic_parent), vi du
-                # "param:at_command_request:at_parser_handler".
+                # 1 key -> sai. Nen gan key theo CA ham chua tham so do
+                # (ref.semantic_parent). QUAN TRONG: dung IDENTITY KEY cua
+                # ham chu (function_identity), khong dung rieng spelling -
+                # neu chi dung spelling thi 2 ham STATIC TRUNG TEN o 2 file
+                # khac nhau (vd 2 ham "handler" static trong uart.c va
+                # spi.c) se lai bi gop chung param key nhu cu, tai hien
+                # dung bug ma tool nay dang sua o cho khac.
                 owner = ref.semantic_parent
-                owner_name = owner.spelling if owner is not None else None
-                if owner_name:
-                    return f"param:{owner_name}:{ref.spelling}"
+                if owner is not None:
+                    owner_key, _, _ = function_identity(owner)
+                    return f"param:{owner_key}:{ref.spelling}"
+                return None
             return f"var:{ref.spelling}"
     if cursor.kind == ci.CursorKind.MEMBER_REF_EXPR:
         return f"field:{cursor.spelling}"
@@ -121,46 +194,53 @@ def symbol_key_for_lvalue(cursor: ci.Cursor) -> Optional[str]:
 
 class CallGraphEngine:
     def __init__(self):
-        self.known_functions = {}            # name -> defining file path
-        self.func_params = {}                # name -> [param_name, ...] (theo dung thu tu khai bao)
-        self.points_to = defaultdict(set)    # key -> {func_name, ...} (gan CU THE, da biet ro ham nao)
-        self.aliases = defaultdict(set)      # key -> {key2, ...}: "key co the tro toi bat ky gia
-                                              # tri nao ma key2 dang tro toi" (chua biet cu the la ham
+        self.known_functions = {}            # key -> {"name":, "file":}
+        self.functions_by_name = defaultdict(set)  # ten_ham (raw) -> {key, ...}
+                                              # (>1 key nghia la ten bi trung -
+                                              # thuong la cac ham static trung
+                                              # ten o file khac nhau)
+        self.func_params = {}                # key -> [param_name, ...] (theo dung thu tu khai bao)
+        self.points_to = defaultdict(set)    # symbol_key -> {func_key, ...} (gan CU THE, da biet ro ham nao)
+        self.aliases = defaultdict(set)      # symbol_key -> {symbol_key2, ...}: "key co the tro toi bat ky
+                                              # gia tri nao ma key2 dang tro toi" (chua biet cu the la ham
                                               # nao ngay tai diem nay - vd 1 tham so duoc "chuyen tiep"
                                               # nguyen ven qua nhieu tang ham ma khong bi goi truc tiep
                                               # o tang do). Duoc "giai" (transitive) trong _resolve_targets().
-        self.direct_edges = set()            # (caller, callee)
-        self.indirect_sites = []             # (caller, key, "file:line")
-        self.manual_edges = set()            # (caller, callee)
+        self.direct_edges = set()            # (caller_key, callee_key)
+        self.indirect_sites = []             # (caller_key, symbol_key, "file:line")
+        self.manual_edges = set()            # (caller_key, callee_key)
         self.diagnostics = []                # log lines (parse errors...)
 
     # -- pass 1: gom toan bo dinh nghia ham, TREN TOAN BO TU truoc --------
     def collect_functions(self, cursor: ci.Cursor):
         if cursor.kind == ci.CursorKind.FUNCTION_DECL and cursor.is_definition():
-            loc = cursor.location
-            path = loc.file.name if loc.file else "?"
-            # neu 1 ten ham xuat hien o nhieu file (trung ten / static
-            # trung ten khac module) -> giu file dau tien gap, ghi log de
-            # anh biet co the can kiem tra thu cong
-            if cursor.spelling in self.known_functions and self.known_functions[cursor.spelling] != path:
+            key, name, path = function_identity(cursor)
+            existing = self.known_functions.get(key)
+            # Voi ham static, key da bao gom ca file nen 2 ham static trung
+            # ten o 2 file khac nhau se KHONG con trung key -> nhanh nay chi
+            # con bat truong hop that su bat thuong: 2 ham EXTERNAL (khong
+            # static) trung ten dinh nghia o 2 file khac nhau (vi pham quy
+            # tac 1 dinh nghia duy nhat cua C/linker).
+            if existing is not None and existing["file"] != path:
                 self.diagnostics.append(
-                    f"[canh bao] ham '{cursor.spelling}' dinh nghia o nhieu noi: "
-                    f"{self.known_functions[cursor.spelling]} va {path}"
+                    f"[canh bao] ham '{name}' (non-static) dinh nghia o nhieu noi: "
+                    f"{existing['file']} va {path}"
                 )
             else:
-                self.known_functions.setdefault(cursor.spelling, path)
+                self.known_functions.setdefault(key, {"name": name, "file": path})
                 self.func_params.setdefault(
-                    cursor.spelling,
+                    key,
                     [p.spelling for p in cursor.get_children()
                      if p.kind == ci.CursorKind.PARM_DECL],
                 )
+            self.functions_by_name[name].add(key)
         for c in cursor.get_children():
             self.collect_functions(c)
 
     # -- pass 2: gom points-to facts + call site --------------------------
-    def walk(self, cursor: ci.Cursor, enclosing_func: Optional[str]):
+    def walk(self, cursor: ci.Cursor, enclosing_func: Optional[FuncKey]):
         if cursor.kind == ci.CursorKind.FUNCTION_DECL and cursor.is_definition():
-            enclosing_func = cursor.spelling
+            enclosing_func, _, _ = function_identity(cursor)
 
         if cursor.kind == ci.CursorKind.BINARY_OPERATOR:
             children = list(cursor.get_children())
@@ -222,9 +302,9 @@ class CallGraphEngine:
     #    khong thi coi bieu thuc la 1 vi tri KHAC (var/field/tham so) va ghi
     #    lai quan he "alias" de _resolve_targets() giai xuyen tang sau nay --
     def _bind_or_alias(self, key: str, expr: ci.Cursor):
-        fname = referenced_function_name(expr, self.known_functions)
-        if fname:
-            self.points_to[key].add(fname)
+        fkey = referenced_function_name(expr, self.known_functions)
+        if fkey:
+            self.points_to[key].add(fkey)
             return
         other_key = symbol_key_for_lvalue(expr)
         if other_key and other_key != key:
@@ -294,20 +374,66 @@ class CallGraphEngine:
                 unresolved.append((caller, key, loc))
         return edges, unresolved
 
-    def add_manual_link(self, caller: str, callees_csv: str):
-        callees = [c.strip() for c in callees_csv.split(",") if c.strip()]
-        for callee in callees:
-            self.manual_edges.add((caller, callee))
-        return callees
+    # -- phan giai 1 chuoi nguoi dung nhap (link thu cong) thanh 1 func key.
+    #    Ho tro dang "ten_ham@doan_duoi_duong_dan_file" de chi ro ham nao
+    #    khi ten bi trung (thuong la cac ham static cung ten o file khac
+    #    nhau). Tra ve (key_hoac_None, dong_canh_bao_hoac_None). --
+    def resolve_function_ref(self, text: str):
+        text = text.strip()
+        name, _, file_hint = text.partition("@")
+        name = name.strip()
+        file_hint = file_hint.strip().replace("\\", "/")
+        candidates = self.functions_by_name.get(name, set())
+        if not candidates:
+            return None, f"'{text}' khong khop ham nao trong ket qua phan tich - file se la null trong JSON."
+        if file_hint:
+            matched = [k for k in candidates if k[0] and k[0].replace("\\", "/").endswith(file_hint)]
+            if len(matched) == 1:
+                return matched[0], None
+            if not matched:
+                return None, f"'{text}': khong tim thay ham '{name}' o file khop voi '@{file_hint}'."
+            return None, f"'{text}': '@{file_hint}' van khop {len(matched)} ham '{name}' - hay ghi ro hon (vd them thu muc cha)."
+        if len(candidates) > 1:
+            chosen = sorted(candidates, key=lambda k: k[0] or "")[0]
+            files = ", ".join(sorted((k[0] or "?") for k in candidates))
+            return chosen, (
+                f"[luu y] '{name}' la ten bi trung o nhieu ham static ({files}). "
+                f"Da tam chon '{chosen[0]}'. Neu khong dung y, nhap '{name}@duong_dan_file' de chi ro."
+            )
+        return next(iter(candidates)), None
 
-    def remove_manual_link(self, caller: str, callee: str):
-        self.manual_edges.discard((caller, callee))
+    def add_manual_link(self, caller_text: str, callees_csv: str):
+        """Tra ve list[(callee_text_goc, caller_key, callee_key)] de GUI
+        hien thi dung ten/file (callee_key co the la None neu khong khop
+        ham nao - GUI se hien caller/callee dang raw text trong truong hop
+        do)."""
+        caller_key, warn = self.resolve_function_ref(caller_text)
+        if warn:
+            self.diagnostics.append(warn)
+        results = []
+        for callee_text in [c.strip() for c in callees_csv.split(",") if c.strip()]:
+            callee_key, warn2 = self.resolve_function_ref(callee_text)
+            if warn2:
+                self.diagnostics.append(warn2)
+            eff_caller = caller_key if caller_key is not None else (None, caller_text)
+            eff_callee = callee_key if callee_key is not None else (None, callee_text)
+            self.manual_edges.add((eff_caller, eff_callee))
+            results.append((callee_text, eff_caller, eff_callee))
+        return results
+
+    def remove_manual_link(self, caller_key, callee_key):
+        self.manual_edges.discard((caller_key, callee_key))
 
     def all_edges(self):
-        def make(caller, callee, edge_type):
+        def info(key):
+            return self.known_functions.get(key, {"name": (key[1] if isinstance(key, tuple) else str(key)),
+                                                    "file": (key[0] if isinstance(key, tuple) else None)})
+
+        def make(caller_key, callee_key, edge_type):
+            c, ce = info(caller_key), info(callee_key)
             return {
-                "caller": {"name": caller, "file": self.known_functions.get(caller)},
-                "callee": {"name": callee, "file": self.known_functions.get(callee)},
+                "caller": {"name": c["name"], "file": c["file"]},
+                "callee": {"name": ce["name"], "file": ce["file"]},
                 "type": edge_type,
             }
         edges = [make(c, ce, "direct") for c, ce in self.direct_edges]
@@ -358,6 +484,8 @@ class CallGraphApp:
         self.engine = CallGraphEngine()
         self.folders = []   # list[str]
         self.files = []     # list[str]
+        self._diag_cursor = 0     # so dong diagnostics da in ra log
+        self.manual_tree_keys = {}  # item_id -> (caller_key, callee_key)
 
         self._build_widgets()
 
@@ -402,14 +530,17 @@ class CallGraphApp:
         self.log_text.pack(fill="both", expand=True, padx=4, pady=4)
 
         # --- Manual link ---
-        manual_box = ttk.LabelFrame(self.root, text="Link thu cong (caller -> callee1, callee2, ...)")
+        manual_box = ttk.LabelFrame(
+            self.root,
+            text="Link thu cong (caller -> callee1, callee2, ... | dung 'ten@file' neu ten bi trung)",
+        )
         manual_box.pack(fill="both", expand=True, **pad)
 
         manual_input = ttk.Frame(manual_box)
         manual_input.pack(fill="x", padx=4, pady=4)
         ttk.Label(manual_input, text="Caller:").pack(side="left")
         self.caller_var = tk.StringVar()
-        self.caller_combo = ttk.Combobox(manual_input, textvariable=self.caller_var, width=28)
+        self.caller_combo = ttk.Combobox(manual_input, textvariable=self.caller_var, width=32)
         self.caller_combo.pack(side="left", padx=(4, 12))
         ttk.Label(manual_input, text="Callees (cach nhau boi ','):").pack(side="left")
         self.callees_var = tk.StringVar()
@@ -447,6 +578,14 @@ class CallGraphApp:
         self.log_text.configure(state="normal")
         self.log_text.delete("1.0", "end")
         self.log_text.configure(state="disabled")
+
+    def _flush_new_diagnostics(self):
+        """In ra log moi dong diagnostics phat sinh tu lan flush truoc den
+        gio (dung khi them link thu cong, de nguoi dung thay ngay canh bao
+        'ten bi trung' / 'khong khop ham nao' ma khong bi in lai tu dau)."""
+        for line in self.engine.diagnostics[self._diag_cursor:]:
+            self.log(line)
+        self._diag_cursor = len(self.engine.diagnostics)
 
     # ------------------------------------------------------------ actions
     def add_folder(self):
@@ -498,9 +637,8 @@ class CallGraphApp:
         self.root.update_idletasks()
 
         self.engine.parse(all_files, extra_args)
-
-        for line in self.engine.diagnostics:
-            self.log(line)
+        self._diag_cursor = 0
+        self._flush_new_diagnostics()
 
         ind_edges, unresolved = self.engine.resolved_indirect_edges()
         self.log(f"Ham da biet                 : {len(self.engine.known_functions)}")
@@ -509,10 +647,29 @@ class CallGraphApp:
         self.log(f"Canh gian tiep resolve duoc : {len(ind_edges)}")
         self.log(f"Call site KHONG resolve duoc (con tro tu ngoai / chua tung thay gan): {len(unresolved)}")
         for caller, key, loc in unresolved[:50]:
-            self.log(f"  - {loc}: trong {caller}() goi qua '{key}' -> khong ro target")
+            self.log(f"  - {loc}: trong {caller[1]}() goi qua '{key}' -> khong ro target")
 
-        # cap nhat danh sach goi y cho combobox Caller
-        self.caller_combo["values"] = sorted(self.engine.known_functions.keys())
+        # canh bao cac ten ham bi trung (thuong la static cung ten o nhieu
+        # file) - de nguoi dung biet can dung dang 'ten@file' khi nhap link
+        # thu cong cho cac ten nay
+        ambiguous = {name: keys for name, keys in self.engine.functions_by_name.items() if len(keys) > 1}
+        if ambiguous:
+            self.log(f"\n[luu y] {len(ambiguous)} ten ham bi trung o nhieu file (thuong la ham static):")
+            for name, keys in sorted(ambiguous.items()):
+                files = ", ".join(sorted((k[0] or "?") for k in keys))
+                self.log(f"  - {name}: {files}")
+            self.log("  Khi them link thu cong cho cac ten nay, dung dang 'ten@duong_dan_file' de chi ro.")
+
+        # cap nhat danh sach goi y cho combobox Caller: ten don gian neu
+        # khong bi trung, hoac "ten@file" cho tung ung vien neu bi trung
+        display_values = []
+        for name, keys in sorted(self.engine.functions_by_name.items()):
+            if len(keys) == 1:
+                display_values.append(name)
+            else:
+                for k in sorted(keys, key=lambda kk: kk[0] or ""):
+                    display_values.append(f"{name}@{k[0]}")
+        self.caller_combo["values"] = display_values
         self.log("\nHoan tat. Co the them link thu cong ben duoi hoac Xuat JSON ngay.")
 
     def add_manual_link(self):
@@ -521,22 +678,24 @@ class CallGraphApp:
         if not caller or not callees_csv:
             messagebox.showwarning("Thieu du lieu", "Nhap ten ham Caller va it nhat 1 Callee.")
             return
-        added = self.engine.add_manual_link(caller, callees_csv)
-        caller_file = self.engine.known_functions.get(caller)
-        if caller_file is None:
-            self.log(f"[luu y] '{caller}' khong khop ham nao trong ket qua phan tich - file se la null trong JSON.")
-        for callee in added:
-            callee_file = self.engine.known_functions.get(callee)
-            if callee_file is None:
-                self.log(f"[luu y] '{callee}' khong khop ham nao trong ket qua phan tich - file se la null trong JSON.")
-            self.manual_tree.insert("", "end", values=(caller, callee, caller_file or "", callee_file or ""))
+        results = self.engine.add_manual_link(caller, callees_csv)
+        self._flush_new_diagnostics()
+        for callee_text, caller_key, callee_key in results:
+            caller_info = self.engine.known_functions.get(caller_key, {"name": caller, "file": None})
+            callee_info = self.engine.known_functions.get(callee_key, {"name": callee_text, "file": None})
+            item = self.manual_tree.insert(
+                "", "end",
+                values=(caller_info["name"], callee_info["name"],
+                        caller_info["file"] or "", callee_info["file"] or ""),
+            )
+            self.manual_tree_keys[item] = (caller_key, callee_key)
         self.callees_var.set("")
 
     def remove_selected_manual_link(self):
         for item in self.manual_tree.selection():
-            values = self.manual_tree.item(item, "values")
-            caller, callee = values[0], values[1]
-            self.engine.remove_manual_link(caller, callee)
+            keys = self.manual_tree_keys.pop(item, None)
+            if keys is not None:
+                self.engine.remove_manual_link(*keys)
             self.manual_tree.delete(item)
 
     def export_json(self):
