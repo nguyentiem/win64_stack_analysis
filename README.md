@@ -39,7 +39,9 @@ cùng cần được tạo bằng target toolchain tương ứng.
 ## 2. Xuất callgraph JSON
 
 `callgraph_gui.py` phân tích C source bằng libclang và tạo file JSON gồm các cạnh gọi
-hàm. Cài binding một lần nếu máy chưa có:
+hàm. Binding `libclang==18.1.1` (kèm `libclang.dll`) đã được đóng gói trong
+`tools/stack_analysis/clang/`, nên không cần cài pip để chạy bản tool này.
+Nếu đóng gói một bản khác không bao gồm thư mục `clang/`, cài binding một lần:
 
 ```powershell
 python -m pip install libclang

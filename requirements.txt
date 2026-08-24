@@ -1,0 +1,4 @@
+# libclang is vendored in ./clang, including clang/native/libclang.dll.
+# No third-party package installation is required to run these scripts.
+# This file records the bundled package version for auditing.
+libclang==18.1.1

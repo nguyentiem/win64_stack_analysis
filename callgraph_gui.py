@@ -47,7 +47,7 @@ DINH DANH HAM (quan trong - tranh gop nham cac ham static trung ten):
   trong known_functions[key] = {"name":.., "file":..}.
 
 Chay: python3 callgraph_gui.py
-Yeu cau: pip install libclang --break-system-packages
+Yeu cau: libclang 18.1.1 da duoc dong goi trong thu muc ./clang.
          (tkinter thuong co san trong python3; neu thieu: apt-get install
           python3-tk)
          Luu y: can ban libclang python binding co ho tro thuoc tinh
