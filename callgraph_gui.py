@@ -66,6 +66,23 @@ from tkinter import ttk, filedialog, messagebox
 import clang.cindex as ci
 
 
+# Header C toi thieu, chi dung de libclang hieu source CMCELL.  Khong dung
+# Windows SDK/MSVC de tool cho ket qua phu thuoc vao may dang chay va khong
+# keo cac ham thu vien chuan vao callgraph.
+STUB_INCLUDE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                "stub_headers")
+
+# Cac symbol thu vien duoc khai bao trong stub_headers. Chung khong phai la
+# canh noi bo va khong can hien trong danh sach callback chua resolve.
+IGNORED_EXTERNAL_FUNCTIONS = {
+    "memchr", "memcmp", "memcpy", "memmove", "memset",
+    "strcat", "strchr", "strcmp", "strcpy", "strlen", "strncmp", "strncpy",
+    "strstr", "strtol", "strtoul", "snprintf", "printf", "vprintf", "sscanf",
+    "malloc", "calloc", "realloc", "free", "abort", "abs", "qsort",
+    "__builtin_va_start", "__builtin_va_end",
+}
+
+
 # ---------------------------------------------------------------------------
 # Neu libclang.so khong tu tim duoc, set duong dan cu the tai day, vi du:
 # ci.Config.set_library_file('/usr/lib/llvm-18/lib/libclang.so.1')
@@ -374,6 +391,11 @@ class CallGraphEngine:
                 unresolved.append((caller, key, loc))
         return edges, unresolved
 
+    @staticmethod
+    def is_ignored_external_call(key: str) -> bool:
+        """True neu key la mot ham thu vien trong stub, khong phai callback."""
+        return key.startswith("var:") and key[4:] in IGNORED_EXTERNAL_FUNCTIONS
+
     # -- phan giai 1 chuoi nguoi dung nhap (link thu cong) thanh 1 func key.
     #    Ho tro dang "ten_ham@doan_duoi_duong_dan_file" de chi ro ham nao
     #    khi ten bi trung (thuong la cac ham static cung ten o file khac
@@ -624,7 +646,11 @@ class CallGraphApp:
             messagebox.showwarning("Thieu nguon", "Hay chon it nhat 1 thu muc hoac 1 file .c truoc khi chay.")
             return
 
-        extra_args = self.extra_args_var.get().split()
+        # -nostdinc bat libclang dung bo header stub di kem tool thay vi tu
+        # dong tim MSVC/Windows SDK cua tung may.  Cac -I cua project van
+        # duoc them ben duoi nhu cu.
+        extra_args = ["-nostdinc", "-I" + STUB_INCLUDE_DIR]
+        extra_args += self.extra_args_var.get().split()
         include_dirs = discover_include_dirs(self.folders)
         # cac thu muc chua file duoc chon rieng le cung can duoc -I, phong khi
         # header cua no nam ngoai moi thu muc da chon
@@ -641,12 +667,19 @@ class CallGraphApp:
         self._flush_new_diagnostics()
 
         ind_edges, unresolved = self.engine.resolved_indirect_edges()
+        relevant_unresolved = [
+            site for site in unresolved
+            if not self.engine.is_ignored_external_call(site[1])
+        ]
+        ignored_external = len(unresolved) - len(relevant_unresolved)
         self.log(f"Ham da biet                 : {len(self.engine.known_functions)}")
         self.log(f"Diem gan con tro (key)      : {len(self.engine.points_to)}")
         self.log(f"Canh truc tiep              : {len(self.engine.direct_edges)}")
         self.log(f"Canh gian tiep resolve duoc : {len(ind_edges)}")
-        self.log(f"Call site KHONG resolve duoc (con tro tu ngoai / chua tung thay gan): {len(unresolved)}")
-        for caller, key, loc in unresolved[:50]:
+        self.log(f"Call site KHONG resolve duoc (con tro tu ngoai / chua tung thay gan): {len(relevant_unresolved)}")
+        if ignored_external:
+            self.log(f"Bo qua {ignored_external} call thu vien chuan (printf/memcpy/...)")
+        for caller, key, loc in relevant_unresolved[:50]:
             self.log(f"  - {loc}: trong {caller[1]}() goi qua '{key}' -> khong ro target")
 
         # canh bao cac ten ham bi trung (thuong la static cung ten o nhieu

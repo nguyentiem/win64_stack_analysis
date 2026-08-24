@@ -41,6 +41,9 @@ cùng cần được tạo bằng target toolchain tương ứng.
 `callgraph_gui.py` phân tích C source bằng libclang và tạo file JSON gồm các cạnh gọi
 hàm. Binding `libclang==18.1.1` (kèm `libclang.dll`) đã được đóng gói trong
 `tools/stack_analysis/clang/`, nên không cần cài pip để chạy bản tool này.
+Tool cũng dùng các header C tối thiểu trong `stub_headers/` khi parse; vì vậy không
+phụ thuộc MSVC/Windows SDK của máy đang chạy và không đưa call chuẩn như
+`printf`/`memcpy` vào danh sách callback chưa resolve.
 Nếu đóng gói một bản khác không bao gồm thư mục `clang/`, cài binding một lần:
 
 ```powershell
