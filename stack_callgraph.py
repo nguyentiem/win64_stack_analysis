@@ -103,7 +103,8 @@ def aggregate_stack(records: Iterable[StackUsage], source_root: Path) -> tuple[d
 
     A source can appear in multiple build directories/configurations.  The
     largest value is safest for a worst-case report; dynamic or unknown GCC
-    values are recorded separately and are never silently treated as zero.
+    values are recorded separately. Graph nodes without a static value later
+    receive a zero contribution while remaining visible in the report.
     """
     known: dict[Node, int] = {}
     unknown: set[Node] = set()
@@ -213,14 +214,17 @@ def markdown_report(
 ) -> str:
     lines = [
         "# Call-path stack analysis", "",
-        f"- Functions with known static stack: {len(frames)}",
+        f"- Functions in callgraph: {len(frames)}",
+        f"- Functions with known static stack: {len(frames) - len(unresolved)}",
         f"- Callgraph edges considered: {len(edges)}",
         f"- Callgraph nodes without a known stack value: {len(unresolved)}",
         f"- Dynamic/unknown `.su` functions: {len(unknown)}",
         f"- Maximum path length considered: {limit} functions", "",
         "## Highest known call paths", "",
-        "Values are sums of GCC static function frames only. They exclude any node "
-        "whose stack is dynamic/unknown and stop at recursive cycles.",
+        "Values are sums of GCC static function frames only. Nodes without a known "
+        "static stack value remain on the call path and contribute 0 B, including "
+        "missing, ambiguous, and dynamic/unknown values. This default does not prove "
+        "that their actual stack usage is zero. Paths stop at recursive cycles.",
     ]
     if truncated:
         lines.extend((
@@ -298,18 +302,22 @@ def main() -> int:
     graph_nodes = {node for edge in edges for node in edge}
     resolved, ambiguous = resolve_graph_nodes(graph_nodes, frames)
     unresolved = graph_nodes - set(resolved)
-    graph_frames = {node: frames[resolved[node]] for node in resolved}
+    # Stack metadata must not determine graph connectivity: optimized builds
+    # may omit records for functions that still appear in the input callgraph.
+    graph_frames = {
+        node: frames[resolved[node]] if node in resolved else 0
+        for node in graph_nodes
+    }
     adjacency: dict[Node, set[Node]] = defaultdict(set)
     graph_edges: set[tuple[Node, Node]] = set()
     for caller, callee in edges:
-        if caller in graph_frames and callee in graph_frames:
-            adjacency[caller].add(callee)
-            graph_edges.add((caller, callee))
+        adjacency[caller].add(callee)
+        graph_edges.add((caller, callee))
     if args.entry:
         starts = {node for node in graph_frames if node[0] in set(args.entry)}
         missing_entries = sorted(set(args.entry) - {node[0] for node in starts})
         if missing_entries:
-            parser.error("Entry function(s) not found with known stack: " + ", ".join(missing_entries))
+            parser.error("Entry function(s) not found in callgraph: " + ", ".join(missing_entries))
     else:
         incoming = {callee for _caller, callee in graph_edges}
         starts = set(graph_frames) - incoming
@@ -334,7 +342,7 @@ def main() -> int:
             "format": "cmcell-callpath-stack-v1",
             "functions": [
                 {"name": node[0], "file": node[1], "stack_bytes": stack_bytes}
-                for node, stack_bytes in sorted(frames.items())
+                for node, stack_bytes in sorted((frames | graph_frames).items())
             ],
             "dynamic_or_unknown_functions": [
                 {"name": node[0], "file": node[1]} for node in sorted(unknown)
