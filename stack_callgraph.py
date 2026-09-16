@@ -19,12 +19,120 @@ from collections import defaultdict
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterable
+import re
 
 from analyze_callgraph import StackUsage, collect_stack_usage
 
 
 Node = tuple[str, str]  # (function name, normalized source file)
 
+
+_GCC_CLONE_SUFFIX_RE = re.compile(
+    r"""
+    (?:
+        \.(?:constprop|isra|part|clone)(?:\.\d+)?
+        |
+        \.cold(?:\.\d+)?
+        |
+        \.hot(?:\.\d+)?
+        |
+        \.lto_priv(?:\.\d+)?
+    )$
+    """,
+    re.VERBOSE,
+)
+
+
+def load_keil_stack(
+    filename: Path,
+    source_root: Path,
+) -> tuple[dict[Node, int], set[Node], list[str]]:
+    """
+    Đọc stack từ keil_stack.json.
+
+    Format:
+    [
+      {
+        "name": "perform_action",
+        "source_file": "cellular/src/cell_connect.c",
+        "stack_bytes": 456
+      }
+    ]
+    """
+    try:
+        content = json.loads(
+            filename.read_text(encoding="utf-8")
+        )
+    except (OSError, json.JSONDecodeError) as exc:
+        raise ValueError(
+            f"Cannot read Keil stack JSON {filename}: {exc}"
+        ) from exc
+
+    if not isinstance(content, list):
+        raise ValueError(
+            "Keil stack JSON root must be a list"
+        )
+
+    frames: dict[Node, int] = {}
+    unknown: set[Node] = set()
+    warnings: list[str] = []
+
+    for index, item in enumerate(content, start=1):
+        if not isinstance(item, dict):
+            warnings.append(
+                f"Keil stack entry {index}: not an object"
+            )
+            continue
+
+        name = item.get("name")
+        file_name = item.get(
+            "source_file",
+            item.get("file", ""),
+        )
+        stack_bytes = item.get("stack_bytes")
+
+        if not isinstance(name, str) or not name.strip():
+            warnings.append(
+                f"Keil stack entry {index}: missing function name"
+            )
+            continue
+
+        # Hàm standard library hoặc hàm không xác định source
+        # không thể ghép chính xác với callgraph.
+        if not isinstance(file_name, str) or not file_name.strip():
+            continue
+
+        if not isinstance(stack_bytes, int) or stack_bytes < 0:
+            warnings.append(
+                f"Keil stack entry {index}: invalid stack_bytes "
+                f"for {name}"
+            )
+            continue
+
+        node = (
+            canonical_function(name),
+            canonical_file(file_name, source_root),
+        )
+
+        # Nếu trùng function + source thì giữ stack lớn nhất.
+        frames[node] = max(
+            frames.get(node, 0),
+            stack_bytes,
+        )
+
+    return frames, unknown, warnings
+
+def canonical_function(name: str) -> str:
+    """Map GCC-generated function clones back to the original function name."""
+    result = name.strip()
+
+    # A function can have multiple optimization suffixes, for example:
+    # foo.constprop.0.isra.1
+    while True:
+        normalized = _GCC_CLONE_SUFFIX_RE.sub("", result)
+        if normalized == result:
+            return result
+        result = normalized
 
 @dataclass(frozen=True)
 class PathResult:
@@ -65,7 +173,7 @@ def parse_node(value: object, source_root: Path) -> Node | None:
     name, file_name = value.get("name"), value.get("file")
     if not isinstance(name, str) or not isinstance(file_name, str) or not name:
         return None
-    return name, canonical_file(file_name, source_root)
+    return canonical_function(name), canonical_file(file_name, source_root)
 
 
 def load_edges(
@@ -103,13 +211,15 @@ def aggregate_stack(records: Iterable[StackUsage], source_root: Path) -> tuple[d
 
     A source can appear in multiple build directories/configurations.  The
     largest value is safest for a worst-case report; dynamic or unknown GCC
-    values are recorded separately. Graph nodes without a static value later
-    receive a zero contribution while remaining visible in the report.
+    values are recorded separately and are never silently treated as zero.
     """
     known: dict[Node, int] = {}
     unknown: set[Node] = set()
     for record in records:
-        node = (record.function, canonical_file(record.source, source_root))
+        node = (
+            canonical_function(record.function),
+            canonical_file(record.source, source_root),
+        )
         if record.stack_bytes is None or "dynamic" in record.stack_kind:
             unknown.add(node)
             continue
@@ -191,14 +301,19 @@ def find_paths(
                 if node in seen:
                     begin = path.index(node)
                     cycles.add(path[begin:] + (node,))
-            if not usable:
+            if not usable or len(path) >= limit:
                 results.append(PathResult(path, total))
                 continue
+
             for node in usable:
-                if len(path) >= limit:
-                    results.append(PathResult(path, total))
-                    continue
-                stack.append((node, path + (node,), total + frames[node], seen | {node}))
+                stack.append(
+                    (
+                        node,
+                        path + (node,),
+                        total + frames[node],
+                        seen | {node},
+                    )
+                )
     results.sort(key=lambda item: (-item.stack_bytes, tuple(node[0] for node in item.nodes)))
     return results, sorted(cycles, key=lambda cycle: tuple(node[0] for node in cycle)), False
 
@@ -255,110 +370,416 @@ def markdown_report(
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--su-dir", required=True, type=Path, help="Build directory containing .su files")
-    parser.add_argument("--callgraph", required=True, type=Path, help="JSON exported by callgraph_gui.py")
-    parser.add_argument("--source-root", type=Path, default=Path(__file__).resolve().parents[2])
-    parser.add_argument("--all-sources", action="store_true", help="Include emulator and third-party .su records")
-    parser.add_argument(
-        "--direct-only", action="store_true",
-        help="Ignore resolved indirect edges (default includes direct and indirect edges)",
-    )
-    parser.add_argument(
-        "--include-manual", action="store_true",
-        help="Include manual JSON edges too (default excludes them because they are user assertions)",
-    )
-    parser.add_argument(
-        "--include-non-direct", action="store_true", help=argparse.SUPPRESS,
-    )
-    parser.add_argument(
-        "--entry", action="append", metavar="FUNCTION",
-        help="Analyse paths starting at this function; repeat for multiple entry functions",
-    )
-    parser.add_argument("--top", type=int, default=20, help="Number of paths in the report (default: 20)")
-    parser.add_argument("--max-depth", type=int, default=128, help="Maximum functions per path (default: 128)")
-    parser.add_argument(
-        "--max-expanded-paths", type=int, default=250000,
-        help="Stop after this many path states to avoid callback-path explosion (default: 250000)",
-    )
-    parser.add_argument("--report", type=Path, default=Path("stack_call_paths.md"))
-    parser.add_argument("--json", type=Path, help="Optional machine-readable result")
-    args = parser.parse_args()
-    if args.top < 1 or args.max_depth < 1 or args.max_expanded_paths < 1:
-        parser.error("--top, --max-depth, and --max-expanded-paths must be positive")
-    if not args.su_dir.is_dir():
-        parser.error(f"Directory does not exist: {args.su_dir}")
-    if not any(args.su_dir.rglob("*.su")):
-        parser.error(f"No .su files found below {args.su_dir}")
 
-    records, _raw, _outside, malformed = collect_stack_usage(args.su_dir, args.source_root, args.all_sources)
-    frames, unknown = aggregate_stack(records, args.source_root)
+    # Folder containing stack_callgraph.py:
+    # cellular/tools/stack_analysis_auto
+    script_dir = Path(__file__).resolve().parent
+
+    # Folder root:
+    # cellular
+    cellular_root = script_dir.parents[1]
+
+    # Output folder:
+    output_dir = script_dir / "output"
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    # Default input/output paths
+    default_keil_stack = output_dir / "keil_stack.json"
+    default_callgraph = output_dir / "callgraph.json"
+    default_report = output_dir / "stack_call_paths.md"
+    default_json = output_dir / "stack_call_paths.json"
+
+    parser.add_argument(
+        "--keil-stack",
+        type=Path,
+        default=default_keil_stack,
+        help=(
+            "Keil stack JSON generated from the map file "
+            f"(default: {default_keil_stack})"
+        ),
+    )
+
+    parser.add_argument(
+        "--callgraph",
+        type=Path,
+        default=default_callgraph,
+        help=(
+            "Callgraph JSON exported by the callgraph builder "
+            f"(default: {default_callgraph})"
+        ),
+    )
+
+    parser.add_argument(
+        "--source-root",
+        type=Path,
+        default=cellular_root,
+        help=(
+            "Cellular source root used to normalize source paths "
+            f"(default: {cellular_root})"
+        ),
+    )
+
+
+    parser.add_argument(
+        "--direct-only",
+        action="store_true",
+        help=(
+            "Ignore resolved indirect edges "
+            "(default includes direct and indirect edges)"
+        ),
+    )
+
+    parser.add_argument(
+        "--include-manual",
+        action="store_true",
+        help=(
+            "Include manual JSON edges too "
+            "(default excludes them because they are user assertions)"
+        ),
+    )
+
+    parser.add_argument(
+        "--include-non-direct",
+        action="store_true",
+        help=argparse.SUPPRESS,
+    )
+
+    parser.add_argument(
+        "--entry",
+        action="append",
+        metavar="FUNCTION",
+        help=(
+            "Analyse paths starting at this function; "
+            "repeat for multiple entry functions"
+        ),
+    )
+
+    parser.add_argument(
+        "--top",
+        type=int,
+        default=20,
+        help="Number of paths in the report (default: 20)",
+    )
+
+    parser.add_argument(
+        "--max-depth",
+        type=int,
+        default=128,
+        help="Maximum functions per path (default: 128)",
+    )
+
+    parser.add_argument(
+        "--max-expanded-paths",
+        type=int,
+        default=250000,
+        help=(
+            "Stop after this many path states to avoid callback-path "
+            "explosion (default: 250000)"
+        ),
+    )
+
+    parser.add_argument(
+        "--report",
+        type=Path,
+        default=default_report,
+        help=(
+            "Markdown report output "
+            f"(default: {default_report})"
+        ),
+    )
+
+    parser.add_argument(
+        "--json",
+        type=Path,
+        default=default_json,
+        help=(
+            "Machine-readable JSON output "
+            f"(default: {default_json})"
+        ),
+    )
+
+    args = parser.parse_args()
+
+    if (
+        args.top < 1
+        or args.max_depth < 1
+        or args.max_expanded_paths < 1
+    ):
+        parser.error(
+            "--top, --max-depth, and --max-expanded-paths "
+            "must be positive"
+        )
+
+    if not args.keil_stack.is_file():
+        parser.error(
+            f"Keil stack JSON file does not exist: {args.keil_stack}"
+        )
+
+    if not any(args.keil_stack.is_file()):
+        parser.error(
+            f"No Keil stack JSON file found: {args.keil_stack}"
+        )
+
+    if not args.callgraph.is_file():
+        parser.error(
+            f"Callgraph JSON does not exist: {args.callgraph}"
+        )
+
+    print("========== INPUT ==========")
+    print(f"Script folder : {script_dir}")
+    print(f"Cellular root : {cellular_root}")
+    print(f"SU directory  : {args.su_dir}")
+    print(f"Callgraph     : {args.callgraph}")
+    print(f"Report        : {args.report}")
+    print(f"JSON result   : {args.json}")
+    print("===========================")
+
+    records, _raw, _outside, malformed = collect_stack_usage(
+    args.su_dir,
+    args.source_root,
+    args.all_sources,
+    )
+
+    su_files = list(args.su_dir.rglob("*.su"))
+
+    def safe_len(x):
+        try:
+            return len(x)
+        except TypeError:
+            return f"<no len: {type(x).__name__}>"
+
+    print(f"SU files discovered : {len(su_files)}")
+    print(f"SU raw records      : {safe_len(_raw)}")
+    print(f"SU accepted records : {safe_len(records)}")
+    print(f"SU outside records  : {safe_len(_outside)}")
+    print(f"SU malformed records: {safe_len(malformed)}")
+
+
+    frames, unknown = aggregate_stack(
+        records,
+        args.source_root,
+    )
+
     try:
         edges, warnings = load_edges(
-            args.callgraph, args.source_root, args.direct_only, args.include_manual
+            args.callgraph,
+            args.source_root,
+            args.direct_only,
+            args.include_manual,
         )
     except ValueError as exc:
         parser.error(str(exc))
-    warnings.extend(f"malformed .su record: {item}" for item in malformed)
-    graph_nodes = {node for edge in edges for node in edge}
-    resolved, ambiguous = resolve_graph_nodes(graph_nodes, frames)
+
+    warnings.extend(
+        f"malformed .su record: {item}"
+        for item in malformed
+    )
+
+    graph_nodes = {
+        node
+        for edge in edges
+        for node in edge
+    }
+
+    resolved, ambiguous = resolve_graph_nodes(
+        graph_nodes,
+        frames,
+    )
+
     unresolved = graph_nodes - set(resolved)
+
     # Stack metadata must not determine graph connectivity: optimized builds
     # may omit records for functions that still appear in the input callgraph.
     graph_frames = {
         node: frames[resolved[node]] if node in resolved else 0
         for node in graph_nodes
     }
+
     adjacency: dict[Node, set[Node]] = defaultdict(set)
     graph_edges: set[tuple[Node, Node]] = set()
+
     for caller, callee in edges:
         adjacency[caller].add(callee)
         graph_edges.add((caller, callee))
+
     if args.entry:
-        starts = {node for node in graph_frames if node[0] in set(args.entry)}
-        missing_entries = sorted(set(args.entry) - {node[0] for node in starts})
+        requested_entries = set(args.entry)
+
+        starts = {
+            node
+            for node in graph_frames
+            if node[0] in requested_entries
+        }
+
+        found_entry_names = {
+            node[0]
+            for node in starts
+        }
+
+        missing_entries = sorted(
+            requested_entries - found_entry_names
+        )
+
         if missing_entries:
             parser.error("Entry function(s) not found in callgraph: " + ", ".join(missing_entries))
     else:
-        incoming = {callee for _caller, callee in graph_edges}
+        incoming = {
+            callee
+            for _caller, callee in graph_edges
+        }
+
         starts = set(graph_frames) - incoming
-        # A graph consisting entirely of cycles has no root. Analyse all nodes
-        # in that exceptional case so the recursive-cycle warning is preserved.
+
         if not starts:
             starts = set(graph_frames)
+
     paths, cycles, truncated = find_paths(
-        adjacency, graph_frames, args.max_depth, args.max_expanded_paths, starts
+        adjacency,
+        graph_frames,
+        args.max_depth,
+        args.max_expanded_paths,
+        starts,
     )
-    report = markdown_report(paths, cycles, graph_frames, graph_edges, unresolved, ambiguous, unknown,
-                             args.top, args.max_depth, warnings, truncated)
-    args.report.parent.mkdir(parents=True, exist_ok=True)
-    args.report.write_text(report, encoding="utf-8")
-    print(f"Wrote {args.report} ({len(paths)} finite paths; best: {paths[0].stack_bytes if paths else 0} B)")
+
+    report = markdown_report(
+        paths,
+        cycles,
+        graph_frames,
+        graph_edges,
+        unresolved,
+        ambiguous,
+        unknown,
+        args.top,
+        args.max_depth,
+        warnings,
+        truncated,
+    )
+
+    args.report.parent.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
+    args.report.write_text(
+        report,
+        encoding="utf-8",
+    )
+
+    best_stack = (
+        paths[0].stack_bytes
+        if paths
+        else 0
+    )
+
+    print()
+    print("========== RESULT ==========")
+    print(f"Known stack functions : {len(frames)}")
+    print(f"Graph edges used      : {len(graph_edges)}")
+    print(f"Finite paths found    : {len(paths)}")
+    print(f"Unresolved nodes      : {len(unresolved)}")
+    print(f"Ambiguous nodes       : {len(ambiguous)}")
+    print(f"Dynamic/unknown       : {len(unknown)}")
+    print(f"Best known stack      : {best_stack} B")
+    print("============================")
+
+    print(
+        f"Wrote {args.report} "
+        f"({len(paths)} finite paths; best: {best_stack} B)"
+    )
+
     if cycles:
-        print(f"Warning: found {len(cycles)} recursive cycle(s); those totals are unbounded without a depth limit", file=sys.stderr)
+        print(
+            f"Warning: found {len(cycles)} recursive cycle(s); "
+            "those totals are unbounded without a depth limit",
+            file=sys.stderr,
+        )
+
     if truncated:
-        print("Warning: path search stopped at --max-expanded-paths; result is partial", file=sys.stderr)
+        print(
+            "Warning: path search stopped at "
+            "--max-expanded-paths; result is partial",
+            file=sys.stderr,
+        )
+
     if args.json:
         data = {
             "format": "cmcell-callpath-stack-v1",
+            "source_root": normalise_path(str(args.source_root)),
+            "su_directory": normalise_path(str(args.su_dir)),
+            "callgraph": normalise_path(str(args.callgraph)),
             "functions": [
-                {"name": node[0], "file": node[1], "stack_bytes": stack_bytes}
+                {
+                    "name": node[0],
+                    "file": node[1],
+                    "stack_bytes": stack_bytes,
+                }
                 for node, stack_bytes in sorted((frames | graph_frames).items())
             ],
             "dynamic_or_unknown_functions": [
-                {"name": node[0], "file": node[1]} for node in sorted(unknown)
+                {
+                    "name": node[0],
+                    "file": node[1],
+                }
+                for node in sorted(unknown)
             ],
             "paths": [
-                {"stack_bytes": item.stack_bytes, "nodes": [
-                    {"name": node[0], "file": node[1], "stack_bytes": graph_frames[node]}
-                    for node in item.nodes]}
-                for item in paths[:args.top]],
-            "recursive_cycles": [[{"name": node[0], "file": node[1]} for node in cycle] for cycle in cycles],
+                {
+                    "stack_bytes": item.stack_bytes,
+                    "nodes": [
+                        {
+                            "name": node[0],
+                            "file": node[1],
+                            "stack_bytes": graph_frames[node],
+                        }
+                        for node in item.nodes
+                    ],
+                }
+                for item in paths[:args.top]
+            ],
+            "recursive_cycles": [
+                [
+                    {
+                        "name": node[0],
+                        "file": node[1],
+                    }
+                    for node in cycle
+                ]
+                for cycle in cycles
+            ],
             "truncated": truncated,
-            "unresolved_nodes": [{"name": node[0], "file": node[1]} for node in sorted(unresolved)],
+            "unresolved_nodes": [
+                {
+                    "name": node[0],
+                    "file": node[1],
+                }
+                for node in sorted(unresolved)
+            ],
+            "ambiguous_nodes": [
+                {
+                    "name": node[0],
+                    "file": node[1],
+                }
+                for node in sorted(ambiguous)
+            ],
+            "input_warnings": warnings,
         }
-        args.json.parent.mkdir(parents=True, exist_ok=True)
-        args.json.write_text(json.dumps(data, indent=2), encoding="utf-8")
+
+        args.json.parent.mkdir(
+            parents=True,
+            exist_ok=True,
+        )
+
+        args.json.write_text(
+            json.dumps(
+                data,
+                indent=2,
+                ensure_ascii=False,
+            ),
+            encoding="utf-8",
+        )
+
         print(f"Wrote {args.json}")
+
     return 0
 
 

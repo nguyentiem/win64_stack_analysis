@@ -20,8 +20,15 @@ from collections import Counter
 from pathlib import Path
 
 
-VIS_NETWORK_CDN = "https://unpkg.com/vis-network@9.1.9/dist/vis-network.min.js"
+SCRIPT_DIR = Path(__file__).resolve().parent
+VIS_JS_PATH = SCRIPT_DIR / "lib" / "vis-9.1.2" / "vis-network.min.js"
 
+try:
+    vis_js = VIS_JS_PATH.read_text(encoding="utf-8")
+except OSError as exc:
+    raise RuntimeError(
+        f"Cannot load vis-network library: {VIS_JS_PATH}"
+    ) from exc
 
 def node_id(function: dict) -> str:
     """Return a stable ID which does not merge duplicate static functions."""
@@ -67,7 +74,10 @@ def make_html(nodes: list[dict], edges: list[dict], title: str) -> str:
     page_title = html.escape(title)
     return f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{page_title}</title><script src="{VIS_NETWORK_CDN}"></script>
+<title>{page_title}</title>
+<script>
+{vis_js}
+</script>
 <style>
 * {{ box-sizing: border-box; }} body {{ margin: 0; font: 14px Segoe UI,Arial,sans-serif; color:#172033; }}
 #toolbar {{ display:flex; gap:8px; align-items:center; padding:10px 14px; border-bottom:1px solid #d8dee9; background:#f8fafc; }}
