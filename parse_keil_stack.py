@@ -142,14 +142,25 @@ def parse_map_file(
 
 def main():
     script_dir = Path(__file__).resolve().parent
+    project_root = script_dir.parent.parent
+    listings_dir = project_root / "uvproj" / "Listings"
+    callgraph_file = script_dir / "output" / "callgraph.json"
+    output_file = script_dir / "output" / "keil_stack.json"
     parser = argparse.ArgumentParser(description="Extract individual Keil function stack frames from map files.")
     parser.add_argument("--map", type=Path, action="append", dest="map_files",
-                        help="Map file to parse; repeat to combine files. Default: FLASH_RAM/CMCELL_AC5_O0.map")
-    parser.add_argument("--callgraph", type=Path, default=script_dir / "output" / "callgraph.json")
-    parser.add_argument("--output", type=Path, default=script_dir / "output" / "keil_stack.json")
-    parser.add_argument("--source-root", type=Path, default=script_dir.parent.parent)
+                        help=f"Map file to parse; repeat to combine files. Default: all .map files in {listings_dir}")
+    parser.add_argument("--callgraph", type=Path, default=callgraph_file)
+    parser.add_argument("--output", type=Path, default=output_file)
+    parser.add_argument("--source-root", type=Path, default=project_root)
     args = parser.parse_args()
-    map_files = args.map_files or [script_dir / "FLASH_RAM" / "CMCELL_AC5_O0.map"]
+    if args.map_files:
+        map_files = args.map_files
+    else:
+        if not listings_dir.is_dir():
+            parser.error(f"Listings directory not found: {listings_dir}")
+        map_files = sorted(listings_dir.glob("*.map"))
+        if not map_files:
+            parser.error(f"No .map files found in: {listings_dir}")
     try:
         function_sources = build_function_source_index(args.callgraph, args.source_root)
         results = []
