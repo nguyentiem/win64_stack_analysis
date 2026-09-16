@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import argparse
 import json
 import re
 from collections import defaultdict
@@ -7,7 +8,7 @@ from pathlib import Path
 
 
 STACK_PATTERN = re.compile(
-    r"Stack Usage for\s+(.+?)\s+(0x[0-9a-fA-F]+|unknown)\s+bytes\.",
+    r"^\s*Stack Usage for\s+(.+?)\s+(0x[0-9a-fA-F]+|unknown)\s+bytes\.\s*$",
     re.IGNORECASE,
 )
 
@@ -74,110 +75,93 @@ def parse_map_file(
     map_file: Path,
     function_sources: dict[str, list[str]],
 ) -> list[dict]:
-    result = []
-    current_file = ""
+    """Read individual frames and infer duplicate symbols from nearby sources.
 
-    with open(
-        map_file,
-        "r",
-        encoding="utf-8",
-        errors="ignore",
-    ) as f:
-        for line in f:
-            match = STACK_PATTERN.search(line)
-
-            if not match:
+    Prefer the current source when it is a candidate. Otherwise use the nearest
+    uniquely mapped function whose source is a candidate, including lookahead.
+    This is a source-order heuristic, not compiler symbol identity information.
+    """
+    entries = []
+    in_section = False
+    section_started = False
+    section_ended = False
+    with map_file.open(encoding="utf-8", errors="replace") as stream:
+        for line_number, line in enumerate(stream, 1):
+            heading = line.strip().lower()
+            if heading == "stack usage for functions.":
+                in_section = True
+                section_started = True
                 continue
+            if in_section and heading == "potential stack usage inaccuracies.":
+                section_ended = True
+                break
+            if not in_section:
+                continue
+            match = STACK_PATTERN.fullmatch(line)
+            if match:
+                name, value = match.groups()
+                entries.append({
+                    "name": name.strip(),
+                    "source_file": "",
+                    "stack_bytes": 0 if value.lower() == "unknown" else int(value, 16),
+                })
+            elif heading.startswith("stack usage for "):
+                raise ValueError(f"Unsupported stack entry in {map_file}:{line_number}: {line.strip()}")
+    if not section_started or not section_ended:
+        raise ValueError(f"Missing stack section boundaries in {map_file}")
 
-            function_name = match.group(1).strip()
-            stack_text = match.group(2)
+    anchors = []
+    for index, entry in enumerate(entries):
+        sources = function_sources.get(entry["name"], [])
+        if len(sources) == 1:
+            entry["source_file"] = sources[0]
+            anchors.append((index, sources[0]))
 
-            stack_bytes = (
-                0
-                if stack_text.lower() == "unknown"
-                else int(stack_text, 16)
-            )
-
-            sources = function_sources.get(function_name, [])
-
-            if len(sources) == 1:
-                # Hàm chỉ có một source trong callgraph.
-                source_file = sources[0]
-                current_file = source_file
-
-            elif len(sources) > 1:
-                # Hàm static trùng tên ở nhiều file.
-                source_file = current_file
-
+    current_file = ""
+    unresolved = []
+    for index, entry in enumerate(entries):
+        sources = function_sources.get(entry["name"], [])
+        if len(sources) == 1:
+            current_file = sources[0]
+        elif len(sources) > 1:
+            if current_file in sources:
+                entry["source_file"] = current_file
             else:
-                # Standard library, IRQ hoặc không có trong callgraph.
-                source_file = ""
-
-            result.append(
-                {
-                    "name": function_name,
-                    "source_file": source_file,
-                    "stack_bytes": stack_bytes,
-                }
-            )
-
-    return result
+                nearby = [(abs(position - index), position > index, source)
+                          for position, source in anchors if source in sources]
+                if nearby:
+                    entry["source_file"] = min(nearby)[2]
+                    current_file = entry["source_file"]
+                else:
+                    unresolved.append(entry["name"])
+    if unresolved:
+        print(f"Warning: {map_file}: source unresolved for {len(unresolved)} duplicate entries: "
+              + ", ".join(sorted(set(unresolved))))
+    return entries
 
 
 def main():
     script_dir = Path(__file__).resolve().parent
-    project_root = script_dir.parent.parent
-
-    listings_dir = project_root / "uvproj" / "Listings"
-    callgraph_file = script_dir / "output" / "callgraph.json"
-    output_file = script_dir / "output" / "keil_stack.json"
-
-    if not listings_dir.exists():
-        raise FileNotFoundError(
-            f"Không tìm thấy Listings: {listings_dir}"
-        )
-
-    if not callgraph_file.exists():
-        raise FileNotFoundError(
-            f"Không tìm thấy callgraph: {callgraph_file}"
-        )
-
-    output_file.parent.mkdir(parents=True, exist_ok=True)
-
-    function_sources = build_function_source_index(
-        callgraph_file,
-        project_root,
-    )
-
-    map_files = sorted(listings_dir.glob("*.map"))
-
-    if not map_files:
-        raise FileNotFoundError(
-            f"Không tìm thấy file .map trong: {listings_dir}"
-        )
-
-    all_results = []
-
-    for map_file in map_files:
-        print(f"Parsing: {map_file}")
-
-        all_results.extend(
-            parse_map_file(
-                map_file,
-                function_sources,
-            )
-        )
-
-    with open(output_file, "w", encoding="utf-8") as f:
-        json.dump(
-            all_results,
-            f,
-            indent=2,
-            ensure_ascii=False,
-        )
-
-    print(f"Functions: {len(all_results)}")
-    print(f"Output   : {output_file}")
+    parser = argparse.ArgumentParser(description="Extract individual Keil function stack frames from map files.")
+    parser.add_argument("--map", type=Path, action="append", dest="map_files",
+                        help="Map file to parse; repeat to combine files. Default: FLASH_RAM/CMCELL_AC5_O0.map")
+    parser.add_argument("--callgraph", type=Path, default=script_dir / "output" / "callgraph.json")
+    parser.add_argument("--output", type=Path, default=script_dir / "output" / "keil_stack.json")
+    parser.add_argument("--source-root", type=Path, default=script_dir.parent.parent)
+    args = parser.parse_args()
+    map_files = args.map_files or [script_dir / "FLASH_RAM" / "CMCELL_AC5_O0.map"]
+    try:
+        function_sources = build_function_source_index(args.callgraph, args.source_root)
+        results = []
+        for map_file in map_files:
+            print(f"Parsing: {map_file}")
+            results.extend(parse_map_file(map_file, function_sources))
+        args.output.parent.mkdir(parents=True, exist_ok=True)
+        args.output.write_text(json.dumps(results, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    except (OSError, ValueError) as exc:
+        parser.error(str(exc))
+    print(f"Functions: {len(results)}")
+    print(f"Output   : {args.output}")
 
 
 if __name__ == "__main__":

@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
-"""Find high stack-usage call chains from GCC .su files and callgraph JSON.
+"""Find maximum stack-usage simple call paths using Keil stack JSON.
 
 The JSON format is the one exported by callgraph_gui.py::
 
     {"caller": {"name": "...", "file": "..."},
      "callee": {"name": "...", "file": "..."}, "type": "direct"}
 
-Only direct calls are used by default: indirect and manual edges can be
-included explicitly, but they are not compiler-proven call paths.
+Direct and resolved indirect calls are included by default. Missing stack
+values contribute zero. Recursive functions are counted once per simple path.
 """
 
 from __future__ import annotations
@@ -15,13 +15,14 @@ from __future__ import annotations
 import argparse
 import json
 import sys
+import time
+from functools import lru_cache
 from collections import defaultdict
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterable
 import re
 
-from analyze_callgraph import StackUsage, collect_stack_usage
 
 
 Node = tuple[str, str]  # (function name, normalized source file)
@@ -48,7 +49,7 @@ def load_keil_stack(
     source_root: Path,
 ) -> tuple[dict[Node, int], set[Node], list[str]]:
     """
-    Đọc stack từ keil_stack.json.
+    Read stack usage from keil_stack.json.
 
     Format:
     [
@@ -97,10 +98,10 @@ def load_keil_stack(
             )
             continue
 
-        # Hàm standard library hoặc hàm không xác định source
-        # không thể ghép chính xác với callgraph.
-        if not isinstance(file_name, str) or not file_name.strip():
-            continue
+        # Keep functions without a known source file
+        # for matching by a unique function name.
+        if not isinstance(file_name, str):
+            file_name = ""
 
         if not isinstance(stack_bytes, int) or stack_bytes < 0:
             warnings.append(
@@ -114,7 +115,7 @@ def load_keil_stack(
             canonical_file(file_name, source_root),
         )
 
-        # Nếu trùng function + source thì giữ stack lớn nhất.
+        # Keep the largest stack value for duplicate function + source entries.
         frames[node] = max(
             frames.get(node, 0),
             stack_bytes,
@@ -152,7 +153,7 @@ def source_candidates(value: str, source_root: Path) -> set[str]:
     if path.startswith(root + "/"):
         candidates.add(path[len(root) + 1 :])
     for marker in ("cellular/", "com/", "modem/"):
-        index = path.find(marker)
+        index = path.rfind(marker)
         if index >= 0:
             candidates.add(path[index:])
     return candidates
@@ -161,10 +162,7 @@ def source_candidates(value: str, source_root: Path) -> set[str]:
 def canonical_file(value: str, source_root: Path) -> str:
     """Use a repository-relative suffix where possible for stable matching."""
     candidates = source_candidates(value, source_root)
-    for candidate in candidates:
-        if candidate.startswith(("cellular/", "com/", "modem/")):
-            return candidate
-    return min(candidates, key=len)
+    return min(candidates, key=lambda candidate: (len(candidate), candidate))
 
 
 def parse_node(value: object, source_root: Path) -> Node | None:
@@ -206,27 +204,6 @@ def load_edges(
     return edges, warnings
 
 
-def aggregate_stack(records: Iterable[StackUsage], source_root: Path) -> tuple[dict[Node, int], set[Node]]:
-    """Return frame sizes keyed by function + source, keeping the largest duplicate.
-
-    A source can appear in multiple build directories/configurations.  The
-    largest value is safest for a worst-case report; dynamic or unknown GCC
-    values are recorded separately and are never silently treated as zero.
-    """
-    known: dict[Node, int] = {}
-    unknown: set[Node] = set()
-    for record in records:
-        node = (
-            canonical_function(record.function),
-            canonical_file(record.source, source_root),
-        )
-        if record.stack_bytes is None or "dynamic" in record.stack_kind:
-            unknown.add(node)
-            continue
-        known[node] = max(known.get(node, 0), record.stack_bytes)
-    return known, unknown
-
-
 def resolve_graph_nodes(
     graph_nodes: set[Node], stack: dict[Node, int]
 ) -> tuple[dict[Node, Node], list[Node]]:
@@ -244,6 +221,13 @@ def resolve_graph_nodes(
         elif node[0] in by_name:
             ambiguous.append(node)
     return resolved, ambiguous
+
+
+def graph_roots(edges: set[tuple[Node, Node]]) -> set[Node]:
+    """Return functions without incoming edges; stack data does not affect roots."""
+    nodes = {node for edge in edges for node in edge}
+    incoming = {callee for _, callee in edges}
+    return nodes - incoming
 
 
 def estimate_path_potential(
@@ -269,7 +253,7 @@ def estimate_path_potential(
 
 def find_paths(
     adjacency: dict[Node, set[Node]], frames: dict[Node, int], limit: int,
-    max_expansions: int, starts: Iterable[Node],
+    max_expansions: int, starts: Iterable[Node], keep_top: int = 20,
 ) -> tuple[list[PathResult], list[tuple[Node, ...]], bool]:
     """Enumerate the best simple paths, stopping a branch at recursive edges.
 
@@ -279,7 +263,9 @@ def find_paths(
     results: list[PathResult] = []
     cycles: set[tuple[Node, ...]] = set()
     expansions = 0
-    potential = estimate_path_potential(adjacency, frames, limit)
+    next_progress = time.monotonic() + 15
+    depth_truncated = False
+    potential = estimate_path_potential(adjacency, frames, min(limit, 128))
     for start in sorted(starts, key=lambda item: (item[0], item[1])):
         stack: list[tuple[Node, tuple[Node, ...], int, frozenset[Node]]] = [
             (start, (start,), frames[start], frozenset((start,)))
@@ -287,9 +273,13 @@ def find_paths(
         while stack:
             if expansions >= max_expansions:
                 results.sort(key=lambda item: (-item.stack_bytes, tuple(node[0] for node in item.nodes)))
-                return results, sorted(cycles, key=lambda cycle: tuple(node[0] for node in cycle)), True
+                return results[:keep_top], sorted(cycles, key=lambda cycle: tuple(node[0] for node in cycle)), True
             current, path, total, seen = stack.pop()
             expansions += 1
+            if expansions % 100000 == 0 and time.monotonic() >= next_progress:
+                best = max((result.stack_bytes for result in results), default=0)
+                print(f"Search: {expansions:,} states; current root: {start[0]}; best: {best} B", flush=True)
+                next_progress = time.monotonic() + 15
             next_nodes = adjacency.get(current, ())
             # ``stack`` is LIFO: append lower potential first so the most
             # promising successor is examined first.
@@ -302,7 +292,12 @@ def find_paths(
                     begin = path.index(node)
                     cycles.add(path[begin:] + (node,))
             if not usable or len(path) >= limit:
+                if usable and len(path) >= limit:
+                    depth_truncated = True
                 results.append(PathResult(path, total))
+                if len(results) >= max(1000, keep_top * 2):
+                    results.sort(key=lambda item: (-item.stack_bytes, item.nodes))
+                    del results[keep_top:]
                 continue
 
             for node in usable:
@@ -315,7 +310,111 @@ def find_paths(
                     )
                 )
     results.sort(key=lambda item: (-item.stack_bytes, tuple(node[0] for node in item.nodes)))
-    return results, sorted(cycles, key=lambda cycle: tuple(node[0] for node in cycle)), False
+    return results[:keep_top], sorted(cycles, key=lambda cycle: tuple(node[0] for node in cycle)), depth_truncated
+
+
+def find_paths_cached(adjacency, frames, starts, keep_top=20):
+    """Compute exact top simple paths, reusing suffixes within SCC visit states.
+
+    A visited mask is retained only inside the current strongly connected
+    component. Once a path leaves it, it cannot return, so earlier masks are
+    irrelevant. The bounded cache limits memory without changing the answer.
+    Cycles are reported as representative DFS back-edge cycles.
+    """
+    starts = tuple(starts)
+    reachable = set(starts)
+    pending = list(starts)
+    while pending:
+        node = pending.pop()
+        for child in adjacency.get(node, ()):
+            if child not in reachable:
+                reachable.add(child)
+                pending.append(child)
+    nodes = sorted(reachable)
+    children = {n: tuple(sorted(adjacency.get(n, ()))) for n in nodes}
+    reverse = defaultdict(set)
+    for node in nodes:
+        for child in children[node]:
+            reverse[child].add(node)
+    seen, order, cycles = set(), [], set()
+    for start in nodes:
+        if start in seen:
+            continue
+        seen.add(start)
+        active = [start]
+        active_positions = {start: 0}
+        pending = [(start, iter(children[start]))]
+        while pending:
+            node, iterator = pending[-1]
+            child = next(iterator, None)
+            if child is None:
+                pending.pop()
+                active.pop()
+                active_positions.pop(node)
+                order.append(node)
+            elif child in active_positions:
+                cycles.add(tuple(active[active_positions[child]:] + [child]))
+            elif child not in seen:
+                seen.add(child)
+                active_positions[child] = len(active)
+                active.append(child)
+                pending.append((child, iter(children[child])))
+    components, bits = {}, {}
+    for start in reversed(order):
+        if start in components:
+            continue
+        component = len(components)
+        components[start] = component
+        pending, members = [start], []
+        while pending:
+            node = pending.pop()
+            members.append(node)
+            for parent in reverse[node]:
+                if parent not in components:
+                    components[parent] = component
+                    pending.append(parent)
+        for index, node in enumerate(sorted(members)):
+            bits[node] = 1 << index
+
+    calls = 0
+    next_progress = time.monotonic() + 15
+    @lru_cache(maxsize=20000)
+    def suffix(node, visited):
+        nonlocal calls, next_progress
+        calls += 1
+        if calls % 10000 == 0 and time.monotonic() >= next_progress:
+            print(f"Search: {calls:,} suffix states; cache: {suffix.cache_info()}", flush=True)
+            next_progress = time.monotonic() + 15
+        candidates = []
+        for child in children[node]:
+            same_component = components[node] == components[child]
+            if same_component and visited & bits[child]:
+                continue
+            child_mask = visited | bits[child] if same_component else bits[child]
+            for result in suffix(child, child_mask):
+                candidates.append(PathResult((node,) + result.nodes,
+                                             frames[node] + result.stack_bytes))
+            if len(candidates) > keep_top * 2:
+                candidates.sort(key=lambda result: (-result.stack_bytes, result.nodes))
+                del candidates[keep_top:]
+        if not candidates:
+            candidates.append(PathResult((node,), frames[node]))
+        candidates.sort(key=lambda result: (-result.stack_bytes, result.nodes))
+        return tuple(candidates[:keep_top])
+
+    old_recursion_limit = sys.getrecursionlimit()
+    sys.setrecursionlimit(max(old_recursion_limit, len(nodes) * 4 + 100))
+    try:
+        results = []
+        for start in sorted(starts):
+            results.extend(suffix(start, bits[start]))
+            results.sort(key=lambda result: (-result.stack_bytes, result.nodes))
+            del results[keep_top:]
+        print(f"Suffix search complete: {calls:,} computed states; {suffix.cache_info()}", flush=True)
+        return results, sorted(cycles), False
+    finally:
+        suffix.cache_clear()
+        sys.setrecursionlimit(old_recursion_limit)
 
 
 def node_text(node: Node, frames: dict[Node, int]) -> str:
@@ -333,18 +432,18 @@ def markdown_report(
         f"- Functions with known static stack: {len(frames) - len(unresolved)}",
         f"- Callgraph edges considered: {len(edges)}",
         f"- Callgraph nodes without a known stack value: {len(unresolved)}",
-        f"- Dynamic/unknown `.su` functions: {len(unknown)}",
+        f"- Unknown stack functions: {len(unknown)}",
         f"- Maximum path length considered: {limit} functions", "",
         "## Highest known call paths", "",
-        "Values are sums of GCC static function frames only. Nodes without a known "
+        "Values are sums of Keil function stack values. Nodes without a known "
         "static stack value remain on the call path and contribute 0 B, including "
-        "missing, ambiguous, and dynamic/unknown values. This default does not prove "
+        "missing, ambiguous, and unknown values. This default does not prove "
         "that their actual stack usage is zero. Paths stop at recursive cycles.",
     ]
     if truncated:
         lines.extend((
             "",
-            "**Partial result:** the search reached `--max-expanded-paths`; increase that value "
+            "**Partial result:** the search reached `--max-expanded-paths` or `--max-depth`; increase the limit "
             "to explore more paths. The listed maximum is not guaranteed to be global.",
         ))
     for index, result in enumerate(paths[:top], start=1):
@@ -353,7 +452,7 @@ def markdown_report(
     if not paths:
         lines.extend(("", "No known call path could be formed."))
     if cycles:
-        lines.extend(("", "## Recursive cycles", "", "These paths can be unbounded without a recursion-depth limit:"))
+        lines.extend(("", "## Recursive cycles", "", "Representative cycles are listed below; recursion can be unbounded without a depth limit:"))
         for cycle in cycles[:50]:
             lines.append("- " + " → ".join(f"`{node[0]}`" for node in cycle))
     if unresolved:
@@ -432,9 +531,10 @@ def main() -> int:
     parser.add_argument(
         "--include-manual",
         action="store_true",
+        default=True,
         help=(
             "Include manual JSON edges too "
-            "(default excludes them because they are user assertions)"
+            "(included by default to traverse the complete callgraph)"
         ),
     )
 
@@ -464,17 +564,17 @@ def main() -> int:
     parser.add_argument(
         "--max-depth",
         type=int,
-        default=128,
-        help="Maximum functions per path (default: 128)",
+        default=None,
+        help="Maximum functions per path (default: all functions)",
     )
 
     parser.add_argument(
         "--max-expanded-paths",
         type=int,
-        default=250000,
+        default=None,
         help=(
             "Stop after this many path states to avoid callback-path "
-            "explosion (default: 250000)"
+            "explosion (default: unlimited)"
         ),
     )
 
@@ -502,8 +602,8 @@ def main() -> int:
 
     if (
         args.top < 1
-        or args.max_depth < 1
-        or args.max_expanded_paths < 1
+        or (args.max_depth is not None and args.max_depth < 1)
+        or (args.max_expanded_paths is not None and args.max_expanded_paths < 1)
     ):
         parser.error(
             "--top, --max-depth, and --max-expanded-paths "
@@ -515,11 +615,6 @@ def main() -> int:
             f"Keil stack JSON file does not exist: {args.keil_stack}"
         )
 
-    if not any(args.keil_stack.is_file()):
-        parser.error(
-            f"No Keil stack JSON file found: {args.keil_stack}"
-        )
-
     if not args.callgraph.is_file():
         parser.error(
             f"Callgraph JSON does not exist: {args.callgraph}"
@@ -528,52 +623,21 @@ def main() -> int:
     print("========== INPUT ==========")
     print(f"Script folder : {script_dir}")
     print(f"Cellular root : {cellular_root}")
-    print(f"SU directory  : {args.su_dir}")
+    print(f"Keil stack    : {args.keil_stack}")
     print(f"Callgraph     : {args.callgraph}")
     print(f"Report        : {args.report}")
     print(f"JSON result   : {args.json}")
     print("===========================")
 
-    records, _raw, _outside, malformed = collect_stack_usage(
-    args.su_dir,
-    args.source_root,
-    args.all_sources,
-    )
-
-    su_files = list(args.su_dir.rglob("*.su"))
-
-    def safe_len(x):
-        try:
-            return len(x)
-        except TypeError:
-            return f"<no len: {type(x).__name__}>"
-
-    print(f"SU files discovered : {len(su_files)}")
-    print(f"SU raw records      : {safe_len(_raw)}")
-    print(f"SU accepted records : {safe_len(records)}")
-    print(f"SU outside records  : {safe_len(_outside)}")
-    print(f"SU malformed records: {safe_len(malformed)}")
-
-
-    frames, unknown = aggregate_stack(
-        records,
-        args.source_root,
-    )
-
     try:
-        edges, warnings = load_edges(
-            args.callgraph,
-            args.source_root,
-            args.direct_only,
-            args.include_manual,
+        frames, unknown, warnings = load_keil_stack(args.keil_stack, args.source_root)
+        edges, edge_warnings = load_edges(
+            args.callgraph, args.source_root,
+            args.direct_only and not args.include_non_direct, args.include_manual,
         )
+        warnings.extend(edge_warnings)
     except ValueError as exc:
         parser.error(str(exc))
-
-    warnings.extend(
-        f"malformed .su record: {item}"
-        for item in malformed
-    )
 
     graph_nodes = {
         node
@@ -623,23 +687,21 @@ def main() -> int:
         if missing_entries:
             parser.error("Entry function(s) not found in callgraph: " + ", ".join(missing_entries))
     else:
-        incoming = {
-            callee
-            for _caller, callee in graph_edges
-        }
+        starts = graph_roots(graph_edges)
+        if graph_nodes and not starts:
+            warnings.append("No root functions: every function has an incoming call edge.")
+    print(f"Starting functions: {len(starts)}", flush=True)
 
-        starts = set(graph_frames) - incoming
-
-        if not starts:
-            starts = set(graph_frames)
-
-    paths, cycles, truncated = find_paths(
-        adjacency,
-        graph_frames,
-        args.max_depth,
-        args.max_expanded_paths,
-        starts,
-    )
+    use_cached_search = args.max_depth is None and args.max_expanded_paths is None
+    args.max_depth = args.max_depth or max(1, len(graph_nodes))
+    args.max_expanded_paths = args.max_expanded_paths or sys.maxsize
+    if use_cached_search:
+        paths, cycles, truncated = find_paths_cached(adjacency, graph_frames, starts, args.top)
+    else:
+        paths, cycles, truncated = find_paths(
+            adjacency, graph_frames, args.max_depth,
+            args.max_expanded_paths, starts, args.top,
+        )
 
     report = markdown_report(
         paths,
@@ -675,7 +737,7 @@ def main() -> int:
     print("========== RESULT ==========")
     print(f"Known stack functions : {len(frames)}")
     print(f"Graph edges used      : {len(graph_edges)}")
-    print(f"Finite paths found    : {len(paths)}")
+    print(f"Top paths retained    : {len(paths)}")
     print(f"Unresolved nodes      : {len(unresolved)}")
     print(f"Ambiguous nodes       : {len(ambiguous)}")
     print(f"Dynamic/unknown       : {len(unknown)}")
@@ -697,7 +759,7 @@ def main() -> int:
     if truncated:
         print(
             "Warning: path search stopped at "
-            "--max-expanded-paths; result is partial",
+            "--max-expanded-paths or --max-depth; result is partial",
             file=sys.stderr,
         )
 
@@ -705,7 +767,7 @@ def main() -> int:
         data = {
             "format": "cmcell-callpath-stack-v1",
             "source_root": normalise_path(str(args.source_root)),
-            "su_directory": normalise_path(str(args.su_dir)),
+            "keil_stack": normalise_path(str(args.keil_stack)),
             "callgraph": normalise_path(str(args.callgraph)),
             "functions": [
                 {
@@ -746,7 +808,15 @@ def main() -> int:
                 ]
                 for cycle in cycles
             ],
+            "search_algorithm": "cached SCC suffixes" if use_cached_search else "bounded DFS",
+            "cycle_reporting": "representative cycles" if use_cached_search else "encountered cycles",
             "truncated": truncated,
+            "entry_functions": [{"name": node[0], "file": node[1]} for node in sorted(starts)],
+            "start_mode": "explicit entries" if args.entry else "roots (no incoming edges)",
+            "max_depth": args.max_depth,
+            "max_expanded_paths": args.max_expanded_paths,
+            "missing_stack_bytes": 0,
+            "path_kind": "simple (no repeated function)",
             "unresolved_nodes": [
                 {
                     "name": node[0],

@@ -1,0 +1,7868 @@
+{
+  "format": "cmcell-callpath-stack-v1",
+  "source_root": "d:/embedded/project/fsoft",
+  "keil_stack": "d:/embedded/project/fsoft/sagemcom/win64_stack_analysis/output/keil_stack.json",
+  "callgraph": "d:/embedded/project/fsoft/sagemcom/win64_stack_analysis/output/callgraph.json",
+  "functions": [
+    {
+      "name": "ADC_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "BusFault_Handler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "CAN1_RX0_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "CAN1_RX1_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "CAN1_SCE_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "CAN1_TX_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "CAN2_RX0_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "CAN2_RX1_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "CAN2_SCE_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "CAN2_TX_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "CAN3_RX0_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "CAN3_RX1_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "CAN3_SCE_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "CAN3_TX_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "DFSDM1_FLT0_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "DFSDM1_FLT1_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "DFSDM2_FLT0_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "DFSDM2_FLT1_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "DFSDM2_FLT2_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "DFSDM2_FLT3_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "DMA1_Stream0_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "DMA1_Stream1_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "DMA1_Stream2_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "DMA1_Stream3_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "DMA1_Stream4_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "DMA1_Stream5_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "DMA1_Stream6_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "DMA1_Stream7_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "DMA2_Stream0_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "DMA2_Stream1_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "DMA2_Stream2_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "DMA2_Stream3_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "DMA2_Stream4_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "DMA2_Stream5_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "DMA2_Stream6_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "DMA2_Stream7_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "DebugMon_Handler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "EXTI0_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "EXTI15_10_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "EXTI1_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "EXTI2_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "EXTI3_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "EXTI4_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "EXTI9_5_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "FLASH_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "FMPI2C1_ER_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "FMPI2C1_EV_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "FPU_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "FSMC_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "HardFault_Handler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "I2C1_ER_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "I2C1_EV_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "I2C2_ER_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "I2C2_EV_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "I2C3_ER_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "I2C3_EV_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "LPTIM1_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "MemManage_Handler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "NMI_Handler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "OTG_FS_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "OTG_FS_WKUP_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "PVD_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "PendSV_Handler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "QUADSPI_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "RCC_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "RNG_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "RTC_Alarm_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "RTC_WKUP_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "Reset_Handler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "SAI1_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "SDIO_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "SPI1_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "SPI2_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "SPI3_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "SPI4_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "SPI5_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "SVC_Handler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "SysTick_Handler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "SystemInit",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "TAMP_STAMP_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "TIM1_BRK_TIM9_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "TIM1_CC_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "TIM1_TRG_COM_TIM11_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "TIM1_UP_TIM10_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "TIM2_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "TIM3_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "TIM4_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "TIM5_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "TIM6_DAC_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "TIM7_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "TIM8_BRK_TIM12_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "TIM8_CC_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "TIM8_TRG_COM_TIM14_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "TIM8_UP_TIM13_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "UART10_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "UART4_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "UART5_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "UART7_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "UART8_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "UART9_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "USART1_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "USART2_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "USART3_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "USART6_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "UsageFault_Handler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "WWDG_IRQHandler",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__0sscanf",
+      "file": "",
+      "stack_bytes": 72
+    },
+    {
+      "name": "__2printf",
+      "file": "",
+      "stack_bytes": 24
+    },
+    {
+      "name": "__2snprintf",
+      "file": "",
+      "stack_bytes": 40
+    },
+    {
+      "name": "__ARM_fpclassify",
+      "file": "",
+      "stack_bytes": 8
+    },
+    {
+      "name": "__ARM_scalbn",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__Heap_Broken",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__Heap_DescSize",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__Heap_Full",
+      "file": "",
+      "stack_bytes": 16
+    },
+    {
+      "name": "__Heap_Initialize",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__Heap_ProvideMemory",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__I$use$semihosting",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__aeabi_cdcmpeq",
+      "file": "",
+      "stack_bytes": 32
+    },
+    {
+      "name": "__aeabi_cdcmple",
+      "file": "",
+      "stack_bytes": 32
+    },
+    {
+      "name": "__aeabi_cdrcmple",
+      "file": "",
+      "stack_bytes": 16
+    },
+    {
+      "name": "__aeabi_d2f",
+      "file": "",
+      "stack_bytes": 32
+    },
+    {
+      "name": "__aeabi_dmul",
+      "file": "",
+      "stack_bytes": 32
+    },
+    {
+      "name": "__aeabi_errno_addr",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__aeabi_llsl",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__aeabi_memclr",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__aeabi_memclr4",
+      "file": "",
+      "stack_bytes": 4
+    },
+    {
+      "name": "__aeabi_memclr8",
+      "file": "",
+      "stack_bytes": 4
+    },
+    {
+      "name": "__aeabi_memcpy",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__aeabi_memcpy4",
+      "file": "",
+      "stack_bytes": 8
+    },
+    {
+      "name": "__aeabi_memcpy8",
+      "file": "",
+      "stack_bytes": 8
+    },
+    {
+      "name": "__aeabi_memmove",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__aeabi_memmove4",
+      "file": "",
+      "stack_bytes": 8
+    },
+    {
+      "name": "__aeabi_memmove8",
+      "file": "",
+      "stack_bytes": 8
+    },
+    {
+      "name": "__btod_div_common",
+      "file": "",
+      "stack_bytes": 24
+    },
+    {
+      "name": "__btod_mult_common",
+      "file": "",
+      "stack_bytes": 16
+    },
+    {
+      "name": "__decompress",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__decompress1",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__default_signal_display",
+      "file": "",
+      "stack_bytes": 16
+    },
+    {
+      "name": "__errno$intlibspace",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__flsbuf",
+      "file": "",
+      "stack_bytes": 32
+    },
+    {
+      "name": "__flsbuf_byte",
+      "file": "",
+      "stack_bytes": 32
+    },
+    {
+      "name": "__flsbuf_wide",
+      "file": "",
+      "stack_bytes": 32
+    },
+    {
+      "name": "__fpl_cmpreturn",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__fpl_dcheck_NaN1",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__fpl_dcmp_Inf",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__fpl_dcmple_InfNaN",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__fpl_dnaninf",
+      "file": "",
+      "stack_bytes": 16
+    },
+    {
+      "name": "__fpl_dretinf",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__fpl_fretinf",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__fpl_return_NaN",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__fplib_config_fpu_vfp",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__fplib_config_pureend_doubles",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__hardfp_ldexp",
+      "file": "",
+      "stack_bytes": 48
+    },
+    {
+      "name": "__heap$guard",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__lib_sel_fp_printf",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__main",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__mathlib_dbl_underflow",
+      "file": "",
+      "stack_bytes": 8
+    },
+    {
+      "name": "__mathlib_narrow",
+      "file": "",
+      "stack_bytes": 32
+    },
+    {
+      "name": "__memmove_aligned",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__memmove_lastfew",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__memmove_lastfew_aligned",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__printf",
+      "file": "",
+      "stack_bytes": 40
+    },
+    {
+      "name": "__read_errno",
+      "file": "",
+      "stack_bytes": 8
+    },
+    {
+      "name": "__rt_SIGRTMEM",
+      "file": "",
+      "stack_bytes": 8
+    },
+    {
+      "name": "__rt_SIGRTMEM_inner",
+      "file": "",
+      "stack_bytes": 8
+    },
+    {
+      "name": "__rt_SIGRTRED",
+      "file": "",
+      "stack_bytes": 8
+    },
+    {
+      "name": "__rt_SIGRTRED_inner",
+      "file": "",
+      "stack_bytes": 8
+    },
+    {
+      "name": "__rt_ctype_table",
+      "file": "",
+      "stack_bytes": 8
+    },
+    {
+      "name": "__rt_entry",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__rt_entry_li",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__rt_entry_main",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__rt_entry_postli_1",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__rt_entry_postsh_1",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__rt_entry_presh_1",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__rt_entry_sh",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__rt_errno_addr$intlibspace",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__rt_exit",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__rt_exit_exit",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__rt_exit_ls",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__rt_exit_prels_1",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__rt_heap_descriptor",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__rt_heap_escrow",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__rt_heap_expand",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__rt_lib_init",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__rt_lib_init_alloca_1",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__rt_lib_init_argv_1",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__rt_lib_init_atexit_1",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__rt_lib_init_clock_1",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__rt_lib_init_cpp_1",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__rt_lib_init_exceptions_1",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__rt_lib_init_fp_1",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__rt_lib_init_fp_trap_1",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__rt_lib_init_getenv_1",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__rt_lib_init_heap_1",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__rt_lib_init_heap_2",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__rt_lib_init_lc_collate_1",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__rt_lib_init_lc_common",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__rt_lib_init_lc_ctype_1",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__rt_lib_init_lc_ctype_2",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__rt_lib_init_lc_monetary_1",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__rt_lib_init_lc_numeric_1",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__rt_lib_init_lc_numeric_2",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__rt_lib_init_lc_time_1",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__rt_lib_init_rand_1",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__rt_lib_init_return",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__rt_lib_init_signal_1",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__rt_lib_init_stdio_1",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__rt_lib_init_stdio_2",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__rt_lib_init_user_alloc_1",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__rt_lib_shutdown",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__rt_lib_shutdown_fp_trap_1",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__rt_lib_shutdown_heap_1",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__rt_lib_shutdown_return",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__rt_lib_shutdown_signal_1",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__rt_lib_shutdown_stdio_1",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__rt_lib_shutdown_stdio_2",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__rt_lib_shutdown_user_alloc_1",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__rt_locale",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__rt_memclr",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__rt_memclr_w",
+      "file": "",
+      "stack_bytes": 4
+    },
+    {
+      "name": "__rt_memcpy",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__rt_memcpy_w",
+      "file": "",
+      "stack_bytes": 8
+    },
+    {
+      "name": "__rt_memmove",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__rt_memmove_w",
+      "file": "",
+      "stack_bytes": 8
+    },
+    {
+      "name": "__scatterload",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__scatterload_null",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__scatterload_rt2",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__scatterload_rt2_thumb_only",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__scatterload_zeroinit",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__semihosting_library_function",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__set_errno",
+      "file": "",
+      "stack_bytes": 8
+    },
+    {
+      "name": "__sig_exit",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__support_ldexp",
+      "file": "",
+      "stack_bytes": 8
+    },
+    {
+      "name": "__use_no_heap",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__use_no_semihosting_swi",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__use_two_region_memory",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__user_initial_stackheap",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__user_libspace",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__user_perproc_libspace",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__user_perthread_libspace",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "__user_setup_stackheap",
+      "file": "",
+      "stack_bytes": 8
+    },
+    {
+      "name": "__vfscanf",
+      "file": "",
+      "stack_bytes": 96
+    },
+    {
+      "name": "__vfscanf_char",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_btod_d2e",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_btod_ediv",
+      "file": "",
+      "stack_bytes": 24
+    },
+    {
+      "name": "_btod_edivd",
+      "file": "",
+      "stack_bytes": 24
+    },
+    {
+      "name": "_btod_emul",
+      "file": "",
+      "stack_bytes": 24
+    },
+    {
+      "name": "_btod_emuld",
+      "file": "",
+      "stack_bytes": 24
+    },
+    {
+      "name": "_btod_etento",
+      "file": "",
+      "stack_bytes": 72
+    },
+    {
+      "name": "_chval",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_d2e_denorm_low",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_d2e_norm_op1",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_d2f",
+      "file": "",
+      "stack_bytes": 32
+    },
+    {
+      "name": "_dcmpeq",
+      "file": "",
+      "stack_bytes": 32
+    },
+    {
+      "name": "_dcmple",
+      "file": "",
+      "stack_bytes": 32
+    },
+    {
+      "name": "_deferredlazyseek",
+      "file": "",
+      "stack_bytes": 8
+    },
+    {
+      "name": "_dmul",
+      "file": "",
+      "stack_bytes": 32
+    },
+    {
+      "name": "_drcmple",
+      "file": "",
+      "stack_bytes": 16
+    },
+    {
+      "name": "_e2d",
+      "file": "",
+      "stack_bytes": 8
+    },
+    {
+      "name": "_e2e",
+      "file": "",
+      "stack_bytes": 24
+    },
+    {
+      "name": "_fclose_internal",
+      "file": "",
+      "stack_bytes": 32
+    },
+    {
+      "name": "_fflush",
+      "file": "",
+      "stack_bytes": 16
+    },
+    {
+      "name": "_fp_digits",
+      "file": "",
+      "stack_bytes": 96
+    },
+    {
+      "name": "_fp_init",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_fp_value",
+      "file": "",
+      "stack_bytes": 88
+    },
+    {
+      "name": "_freopen_locked",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_fseek",
+      "file": "",
+      "stack_bytes": 24
+    },
+    {
+      "name": "_ftell_internal",
+      "file": "",
+      "stack_bytes": 8
+    },
+    {
+      "name": "_get_lc_ctype",
+      "file": "",
+      "stack_bytes": 8
+    },
+    {
+      "name": "_get_lc_numeric",
+      "file": "",
+      "stack_bytes": 8
+    },
+    {
+      "name": "_init_alloc",
+      "file": "",
+      "stack_bytes": 24
+    },
+    {
+      "name": "_init_user_alloc",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_initio",
+      "file": "",
+      "stack_bytes": 8
+    },
+    {
+      "name": "_is_digit",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_ll_shift_l",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_ll_udiv10",
+      "file": "",
+      "stack_bytes": 12
+    },
+    {
+      "name": "_maybe_terminate_alloc",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_mbrtowc",
+      "file": "",
+      "stack_bytes": 16
+    },
+    {
+      "name": "_memcpy_lastbytes",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_memcpy_lastbytes_aligned",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_memset",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_memset_w",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_printf_a",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_printf_c",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_printf_char",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_printf_char_common",
+      "file": "",
+      "stack_bytes": 64
+    },
+    {
+      "name": "_printf_char_file",
+      "file": "",
+      "stack_bytes": 16
+    },
+    {
+      "name": "_printf_charcount",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_printf_cs_common",
+      "file": "",
+      "stack_bytes": 8
+    },
+    {
+      "name": "_printf_d",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_printf_e",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_printf_f",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_printf_fp_dec",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_printf_fp_dec_real",
+      "file": "",
+      "stack_bytes": 104
+    },
+    {
+      "name": "_printf_fp_hex",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_printf_fp_hex_real",
+      "file": "",
+      "stack_bytes": 72
+    },
+    {
+      "name": "_printf_fp_infnan",
+      "file": "",
+      "stack_bytes": 24
+    },
+    {
+      "name": "_printf_g",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_printf_hex_common",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_printf_hex_ptr",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_printf_i",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_printf_input_char",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_printf_int_common",
+      "file": "",
+      "stack_bytes": 32
+    },
+    {
+      "name": "_printf_int_dec",
+      "file": "",
+      "stack_bytes": 24
+    },
+    {
+      "name": "_printf_int_hex",
+      "file": "",
+      "stack_bytes": 16
+    },
+    {
+      "name": "_printf_int_oct",
+      "file": "",
+      "stack_bytes": 8
+    },
+    {
+      "name": "_printf_l",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_printf_lc",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_printf_lcs_common",
+      "file": "",
+      "stack_bytes": 8
+    },
+    {
+      "name": "_printf_ll",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_printf_ll_hex",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_printf_ll_oct",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_printf_lld",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_printf_lli",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_printf_llo",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_printf_llu",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_printf_llx",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_printf_longlong_dec",
+      "file": "",
+      "stack_bytes": 24
+    },
+    {
+      "name": "_printf_longlong_hex",
+      "file": "",
+      "stack_bytes": 16
+    },
+    {
+      "name": "_printf_longlong_oct",
+      "file": "",
+      "stack_bytes": 8
+    },
+    {
+      "name": "_printf_longlong_oct_internal",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_printf_ls",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_printf_n",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_printf_o",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_printf_p",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_printf_percent",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_printf_percent_end",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_printf_post_padding",
+      "file": "",
+      "stack_bytes": 16
+    },
+    {
+      "name": "_printf_pre_padding",
+      "file": "",
+      "stack_bytes": 16
+    },
+    {
+      "name": "_printf_s",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_printf_str",
+      "file": "",
+      "stack_bytes": 16
+    },
+    {
+      "name": "_printf_string",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_printf_truncate_signed",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_printf_truncate_unsigned",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_printf_u",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_printf_wchar",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_printf_wctomb",
+      "file": "",
+      "stack_bytes": 56
+    },
+    {
+      "name": "_printf_wstring",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_printf_x",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_sbackspace",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_scanf_char_input",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_scanf_hex_real",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_scanf_infnan",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_scanf_int",
+      "file": "",
+      "stack_bytes": 56
+    },
+    {
+      "name": "_scanf_longlong",
+      "file": "",
+      "stack_bytes": 56
+    },
+    {
+      "name": "_scanf_mbtowc",
+      "file": "",
+      "stack_bytes": 64
+    },
+    {
+      "name": "_scanf_real",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_scanf_really_hex_real",
+      "file": "",
+      "stack_bytes": 80
+    },
+    {
+      "name": "_scanf_really_infnan",
+      "file": "",
+      "stack_bytes": 72
+    },
+    {
+      "name": "_scanf_really_real",
+      "file": "",
+      "stack_bytes": 120
+    },
+    {
+      "name": "_scanf_string",
+      "file": "",
+      "stack_bytes": 56
+    },
+    {
+      "name": "_scanf_wcharmap",
+      "file": "",
+      "stack_bytes": 8
+    },
+    {
+      "name": "_scanf_wctomb",
+      "file": "",
+      "stack_bytes": 64
+    },
+    {
+      "name": "_scanf_wstring",
+      "file": "",
+      "stack_bytes": 56
+    },
+    {
+      "name": "_seterr",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_sgetc",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_snputc",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_sputc",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_sys_close",
+      "file": "",
+      "stack_bytes": 8
+    },
+    {
+      "name": "_sys_ensure",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_sys_exit",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_sys_flen",
+      "file": "",
+      "stack_bytes": 8
+    },
+    {
+      "name": "_sys_istty",
+      "file": "",
+      "stack_bytes": 8
+    },
+    {
+      "name": "_sys_open",
+      "file": "",
+      "stack_bytes": 16
+    },
+    {
+      "name": "_sys_read",
+      "file": "",
+      "stack_bytes": 24
+    },
+    {
+      "name": "_sys_seek",
+      "file": "",
+      "stack_bytes": 16
+    },
+    {
+      "name": "_sys_write",
+      "file": "",
+      "stack_bytes": 24
+    },
+    {
+      "name": "_terminate_user_alloc",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "_terminateio",
+      "file": "",
+      "stack_bytes": 16
+    },
+    {
+      "name": "_ttywrch",
+      "file": "",
+      "stack_bytes": 8
+    },
+    {
+      "name": "_wcrtomb",
+      "file": "",
+      "stack_bytes": 16
+    },
+    {
+      "name": "_writebuf",
+      "file": "",
+      "stack_bytes": 32
+    },
+    {
+      "name": "activate_local",
+      "file": "cellular/src/cell_dfota.c",
+      "stack_bytes": 8
+    },
+    {
+      "name": "activate_pdp_context",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 48
+    },
+    {
+      "name": "activate_pdp_context_wrapper",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "activate_wireless",
+      "file": "cellular/src/cell_dfota.c",
+      "stack_bytes": 8
+    },
+    {
+      "name": "aggregate_ps_registration_status",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "at_command_execute",
+      "file": "cellular/src/cell_dfota.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "at_command_request",
+      "file": "modem/src/cell_at.c",
+      "stack_bytes": 176
+    },
+    {
+      "name": "at_get_first_solicited_line",
+      "file": "modem/src/cell_at.c",
+      "stack_bytes": 48
+    },
+    {
+      "name": "at_parser_band_get",
+      "file": "modem/src/cell_modem_bg95.c",
+      "stack_bytes": 120
+    },
+    {
+      "name": "at_parser_band_get",
+      "file": "modem/src/cell_modem_eg915u.c",
+      "stack_bytes": 88
+    },
+    {
+      "name": "at_parser_cs_network_reg_status_get",
+      "file": "modem/src/cell_modem_common.c",
+      "stack_bytes": 48
+    },
+    {
+      "name": "at_parser_custom_at",
+      "file": "cellular/src/cell_test.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "at_parser_dfota_write",
+      "file": "modem/src/cell_modem_bg95.c",
+      "stack_bytes": 48
+    },
+    {
+      "name": "at_parser_eps_network_reg_status_get",
+      "file": "modem/src/cell_modem_common.c",
+      "stack_bytes": 48
+    },
+    {
+      "name": "at_parser_file_open",
+      "file": "modem/src/cell_modem_bg95.c",
+      "stack_bytes": 48
+    },
+    {
+      "name": "at_parser_firmware_version",
+      "file": "modem/src/cell_modem_common.c",
+      "stack_bytes": 48
+    },
+    {
+      "name": "at_parser_get_tcp_socket_status",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 64
+    },
+    {
+      "name": "at_parser_gprs_network_reg_status_get",
+      "file": "modem/src/cell_modem_common.c",
+      "stack_bytes": 48
+    },
+    {
+      "name": "at_parser_iccid_get",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 48
+    },
+    {
+      "name": "at_parser_imei_get",
+      "file": "modem/src/cell_modem_common.c",
+      "stack_bytes": 48
+    },
+    {
+      "name": "at_parser_imsi_get",
+      "file": "modem/src/cell_modem_common.c",
+      "stack_bytes": 48
+    },
+    {
+      "name": "at_parser_manufacturer_info",
+      "file": "modem/src/cell_modem_common.c",
+      "stack_bytes": 48
+    },
+    {
+      "name": "at_parser_model_info",
+      "file": "modem/src/cell_modem_common.c",
+      "stack_bytes": 48
+    },
+    {
+      "name": "at_parser_nb1_cap_feature_bitmap_get",
+      "file": "modem/src/cell_modem_bg95.c",
+      "stack_bytes": 48
+    },
+    {
+      "name": "at_parser_neighbour_cell_get",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 104
+    },
+    {
+      "name": "at_parser_net_category_get",
+      "file": "modem/src/cell_modem_bg95.c",
+      "stack_bytes": 48
+    },
+    {
+      "name": "at_parser_operator_info_get",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 56
+    },
+    {
+      "name": "at_parser_pdp_get",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 80
+    },
+    {
+      "name": "at_parser_pdp_settings_get",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 56
+    },
+    {
+      "name": "at_parser_psm_get",
+      "file": "modem/src/cell_modem_common.c",
+      "stack_bytes": 96
+    },
+    {
+      "name": "at_parser_quectel_firmware_version",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 48
+    },
+    {
+      "name": "at_parser_rat_get",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 48
+    },
+    {
+      "name": "at_parser_rat_mode_get",
+      "file": "modem/src/cell_modem_eg915u.c",
+      "stack_bytes": 48
+    },
+    {
+      "name": "at_parser_rat_seq_get",
+      "file": "modem/src/cell_modem_bg95.c",
+      "stack_bytes": 64
+    },
+    {
+      "name": "at_parser_scrub_direction_get",
+      "file": "modem/src/cell_modem_bg95.c",
+      "stack_bytes": 48
+    },
+    {
+      "name": "at_parser_semtech_band_get",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 96
+    },
+    {
+      "name": "at_parser_semtech_firmware_version",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 48
+    },
+    {
+      "name": "at_parser_semtech_iccid_get",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 48
+    },
+    {
+      "name": "at_parser_semtech_operator_info_get",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 56
+    },
+    {
+      "name": "at_parser_semtech_pdp_authentication_get",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 56
+    },
+    {
+      "name": "at_parser_semtech_pdp_context_info_get",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 56
+    },
+    {
+      "name": "at_parser_semtech_pdp_settings_get",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 64
+    },
+    {
+      "name": "at_parser_semtech_pdp_stat_get",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 96
+    },
+    {
+      "name": "at_parser_semtech_service_domain_get",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 48
+    },
+    {
+      "name": "at_parser_service_domain_get",
+      "file": "modem/src/cell_modem_bg95.c",
+      "stack_bytes": 48
+    },
+    {
+      "name": "at_parser_serving_cell_get",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 112
+    },
+    {
+      "name": "at_parser_serving_cell_get",
+      "file": "modem/src/cell_modem_semtech_hl7900.c",
+      "stack_bytes": 80
+    },
+    {
+      "name": "at_parser_signal_quality_report",
+      "file": "modem/src/cell_modem_common.c",
+      "stack_bytes": 56
+    },
+    {
+      "name": "at_parser_sim_readiness_check",
+      "file": "modem/src/cell_modem_common.c",
+      "stack_bytes": 64
+    },
+    {
+      "name": "at_parser_socket_check_exist",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 56
+    },
+    {
+      "name": "at_parser_socket_check_usability",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 56
+    },
+    {
+      "name": "at_parser_socket_get_data_verify",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 48
+    },
+    {
+      "name": "at_parser_socket_get_unread_recv_len",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 56
+    },
+    {
+      "name": "at_parser_socket_get_unread_recv_len",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 64
+    },
+    {
+      "name": "at_parser_socket_id",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 48
+    },
+    {
+      "name": "at_parser_socket_query_service_status",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 48
+    },
+    {
+      "name": "at_parser_socket_receive",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 56
+    },
+    {
+      "name": "at_parser_socket_receive",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 80
+    },
+    {
+      "name": "at_parser_storage_space_get",
+      "file": "modem/src/cell_modem_bg95.c",
+      "stack_bytes": 48
+    },
+    {
+      "name": "at_parser_time_get",
+      "file": "modem/src/cell_modem_common.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "at_parset_ue_functionality_get",
+      "file": "modem/src/cell_modem_common.c",
+      "stack_bytes": 48
+    },
+    {
+      "name": "at_read_line",
+      "file": "modem/src/cell_at.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "band_set",
+      "file": "modem/src/cell_modem_bg95.c",
+      "stack_bytes": 208
+    },
+    {
+      "name": "band_set",
+      "file": "modem/src/cell_modem_eg915u.c",
+      "stack_bytes": 176
+    },
+    {
+      "name": "bg95_delta_package_copy_to_flash",
+      "file": "modem/src/cell_modem_bg95.c",
+      "stack_bytes": 104
+    },
+    {
+      "name": "bg95_dfota_config_update_after_download",
+      "file": "modem/src/cell_modem_bg95.c",
+      "stack_bytes": 72
+    },
+    {
+      "name": "bg95_dfota_download_cancel",
+      "file": "modem/src/cell_modem_bg95.c",
+      "stack_bytes": 72
+    },
+    {
+      "name": "bg95_dfota_local_init",
+      "file": "modem/src/cell_modem_bg95.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "bg95_dfota_local_trigger",
+      "file": "modem/src/cell_modem_bg95.c",
+      "stack_bytes": 72
+    },
+    {
+      "name": "bg95_dfota_local_update",
+      "file": "modem/src/cell_modem_bg95.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "bg95_dfota_wireless_init",
+      "file": "modem/src/cell_modem_bg95.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "bg95_dfota_wireless_start",
+      "file": "modem/src/cell_modem_bg95.c",
+      "stack_bytes": 192
+    },
+    {
+      "name": "bg95_dfota_write",
+      "file": "modem/src/cell_modem_bg95.c",
+      "stack_bytes": 80
+    },
+    {
+      "name": "bg95_file_close",
+      "file": "modem/src/cell_modem_bg95.c",
+      "stack_bytes": 104
+    },
+    {
+      "name": "bg95_file_open",
+      "file": "modem/src/cell_modem_bg95.c",
+      "stack_bytes": 104
+    },
+    {
+      "name": "bg95_fota_apn_config",
+      "file": "modem/src/cell_modem_bg95.c",
+      "stack_bytes": 256
+    },
+    {
+      "name": "bg95_modem_specific_features_set",
+      "file": "modem/src/cell_modem_bg95.c",
+      "stack_bytes": 48
+    },
+    {
+      "name": "bg95_nb1_cap_feature_bitmap_get",
+      "file": "modem/src/cell_modem_bg95.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "bg95_nb1_cap_feature_bitmap_set",
+      "file": "modem/src/cell_modem_bg95.c",
+      "stack_bytes": 120
+    },
+    {
+      "name": "bg95_rat_settings_get",
+      "file": "modem/src/cell_modem_bg95.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "bg95_rat_settings_set",
+      "file": "modem/src/cell_modem_bg95.c",
+      "stack_bytes": 32
+    },
+    {
+      "name": "bg95_scrub_direction_get",
+      "file": "modem/src/cell_modem_bg95.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "bg95_scrub_flash",
+      "file": "modem/src/cell_modem_bg95.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "bg95_service_domain_get",
+      "file": "modem/src/cell_modem_bg95.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "bg95_service_domain_set",
+      "file": "modem/src/cell_modem_bg95.c",
+      "stack_bytes": 80
+    },
+    {
+      "name": "bg95_storage_free",
+      "file": "modem/src/cell_modem_bg95.c",
+      "stack_bytes": 56
+    },
+    {
+      "name": "bg95_storage_space_get",
+      "file": "modem/src/cell_modem_bg95.c",
+      "stack_bytes": 64
+    },
+    {
+      "name": "bg95_urc_dfota_handler",
+      "file": "modem/src/cell_modem_bg95.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "bin_string_to_uint4",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "build_send_command",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "build_socket_create_command",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 120
+    },
+    {
+      "name": "build_socket_receive_command",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "build_socket_recv_command",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "build_socket_send_command",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 96
+    },
+    {
+      "name": "calc_iotop_mode_scan_mode_from_scan_seq",
+      "file": "modem/src/cell_modem_bg95.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "cell_cellular_info_get",
+      "file": "cellular/src/cell_api.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "cell_com_enable_rxne_irq",
+      "file": "com/src/cell_com.c",
+      "stack_bytes": 8
+    },
+    {
+      "name": "cell_com_init",
+      "file": "com/src/cell_com.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "cell_com_is_char_available",
+      "file": "com/src/cell_com.c",
+      "stack_bytes": 8
+    },
+    {
+      "name": "cell_com_notify_task_on_rxne",
+      "file": "cellular/src/cell_task.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "cell_com_read_last_bytes",
+      "file": "com/src/cell_com.c",
+      "stack_bytes": 32
+    },
+    {
+      "name": "cell_com_send_buffer",
+      "file": "com/src/cell_com.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "cell_com_set_baudrate",
+      "file": "com/src/cell_com.c",
+      "stack_bytes": 8
+    },
+    {
+      "name": "cell_com_set_power_pin",
+      "file": "com/src/cell_com.c",
+      "stack_bytes": 8
+    },
+    {
+      "name": "cell_com_set_reset_pin",
+      "file": "com/src/cell_com.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "cell_connect",
+      "file": "cellular/src/cell_api.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "cell_context_create",
+      "file": "cellular/src/cell_api.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "cell_dfota_abort",
+      "file": "cellular/src/cell_api.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "cell_dfota_activate",
+      "file": "cellular/src/cell_api.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "cell_dfota_start",
+      "file": "cellular/src/cell_api.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "cell_dfota_write",
+      "file": "cellular/src/cell_api.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "cell_driver_disable_uart_irq",
+      "file": "com/src/cell_driver_interface.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "cell_driver_enable_uart_irq",
+      "file": "com/src/cell_driver_interface.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "cell_driver_get_dma_index",
+      "file": "com/src/cell_driver_interface.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "cell_driver_init",
+      "file": "com/src/cell_driver_interface.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "cell_driver_modem_reset",
+      "file": "com/src/cell_driver_interface.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "cell_driver_set_power_pin",
+      "file": "com/src/cell_driver_interface.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "cell_driver_uart_irq_handler",
+      "file": "com/src/cell_com.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "cell_get_at_resp_type",
+      "file": "modem/src/cell_at.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "cell_id_convert",
+      "file": "modem/src/cell_modem_semtech_hl7900.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "cell_init",
+      "file": "cellular/src/cell_api.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "cell_log_config",
+      "file": "cellular/src/cell_api.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "cell_log_debug",
+      "file": "cellular/src/cell_log.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "cell_log_normal",
+      "file": "cellular/src/cell_log.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "cell_log_print",
+      "file": "cellular/src/cell_log.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "cell_log_set_level",
+      "file": "cellular/src/cell_log.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "cell_log_verbose",
+      "file": "cellular/src/cell_log.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "cell_modem_info_get",
+      "file": "cellular/src/cell_api.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "cell_network_info_get",
+      "file": "cellular/src/cell_api.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "cell_os_feed_wdg",
+      "file": "cellular/src/cell_os.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "cell_os_get_time_ms",
+      "file": "cellular/src/cell_os.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "cell_os_msg_create",
+      "file": "cellular/src/cell_os.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "cell_os_msg_read",
+      "file": "cellular/src/cell_os.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "cell_os_msg_write",
+      "file": "cellular/src/cell_os.c",
+      "stack_bytes": 8
+    },
+    {
+      "name": "cell_os_msg_write_from_isr",
+      "file": "cellular/src/cell_os.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "cell_os_sleep_ms",
+      "file": "cellular/src/cell_os.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "cell_os_task_create",
+      "file": "cellular/src/cell_os.c",
+      "stack_bytes": 12
+    },
+    {
+      "name": "cell_os_timer_create",
+      "file": "cellular/src/cell_os.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "cell_os_timer_start",
+      "file": "cellular/src/cell_os.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "cell_os_timer_stop",
+      "file": "cellular/src/cell_os.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "cell_plmn_convert",
+      "file": "modem/src/cell_modem_semtech_hl7900.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "cell_psm_settings_get",
+      "file": "cellular/src/cell_api.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "cell_service_status_get",
+      "file": "cellular/src/cell_api.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "cell_simcard_info_get",
+      "file": "cellular/src/cell_api.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "cell_socket_close",
+      "file": "cellular/src/cell_api.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "cell_socket_create",
+      "file": "cellular/src/cell_api.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "cell_socket_receive",
+      "file": "cellular/src/cell_api.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "cell_socket_send",
+      "file": "cellular/src/cell_api.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "cell_socket_verify_data",
+      "file": "cellular/src/cell_api.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "cell_startup",
+      "file": "cellular/src/cell_task.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "cell_task",
+      "file": "cellular/src/cell_task.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "cell_test",
+      "file": "cellular/src/cell_api.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "cell_test_notify_custom_at",
+      "file": "cellular/src/cell_test.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "cell_test_process",
+      "file": "cellular/src/cell_test.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "cell_uart_send_buffer",
+      "file": "com/src/cell_driver_interface.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "cell_uart_set_baudrate",
+      "file": "com/src/cell_driver_interface.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "check_again_with_other_baudrates",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "check_at_status",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "check_event_CONNECT",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 32
+    },
+    {
+      "name": "check_event_TIMER",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "check_event_URC",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "check_final_tokens",
+      "file": "modem/src/cell_at.c",
+      "stack_bytes": 32
+    },
+    {
+      "name": "check_operator_status",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 152
+    },
+    {
+      "name": "check_reset_request",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "check_timer_event",
+      "file": "cellular/src/cell_dfota.c",
+      "stack_bytes": 8
+    },
+    {
+      "name": "check_ue_functionality_wrapper",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "check_urc_event",
+      "file": "cellular/src/cell_dfota.c",
+      "stack_bytes": 8
+    },
+    {
+      "name": "check_urc_token_without_prefix",
+      "file": "modem/src/cell_at.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "circular_buf_get",
+      "file": "com/src/cell_com.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "circular_buf_get_unread",
+      "file": "com/src/cell_com.c",
+      "stack_bytes": 8
+    },
+    {
+      "name": "clear_bit",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "common_at_readiness_check",
+      "file": "modem/src/cell_modem_common.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "common_cs_network_reg_status_get",
+      "file": "modem/src/cell_modem_common.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "common_echo_turn_off",
+      "file": "modem/src/cell_modem_common.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "common_eps_network_reg_status_get",
+      "file": "modem/src/cell_modem_common.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "common_eps_network_registration_urc_enable",
+      "file": "modem/src/cell_modem_common.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "common_firmware_version_get",
+      "file": "modem/src/cell_modem_common.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "common_get_modem_driver",
+      "file": "modem/src/cell_modem_common.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "common_get_modem_type",
+      "file": "modem/src/cell_modem_common.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "common_gprs_network_reg_status_get",
+      "file": "modem/src/cell_modem_common.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "common_gprs_network_registration_urc_enable",
+      "file": "modem/src/cell_modem_common.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "common_imei_get",
+      "file": "modem/src/cell_modem_common.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "common_imsi_get",
+      "file": "modem/src/cell_modem_common.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "common_manufacturer_info_get",
+      "file": "modem/src/cell_modem_common.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "common_model_id_get",
+      "file": "modem/src/cell_modem_common.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "common_pin_enter",
+      "file": "modem/src/cell_modem_common.c",
+      "stack_bytes": 120
+    },
+    {
+      "name": "common_psm_config_get",
+      "file": "modem/src/cell_modem_common.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "common_psm_config_set",
+      "file": "modem/src/cell_modem_common.c",
+      "stack_bytes": 144
+    },
+    {
+      "name": "common_reporting_cme_error_enable",
+      "file": "modem/src/cell_modem_common.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "common_signal_quality_report",
+      "file": "modem/src/cell_modem_common.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "common_sim_readiness_check",
+      "file": "modem/src/cell_modem_common.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "common_time_get",
+      "file": "modem/src/cell_modem_common.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "common_ue_functionality_get",
+      "file": "modem/src/cell_modem_common.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "common_ue_functionality_set",
+      "file": "modem/src/cell_modem_common.c",
+      "stack_bytes": 56
+    },
+    {
+      "name": "common_ue_reset",
+      "file": "modem/src/cell_modem_common.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "config",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "config_operator_wrapper",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "config_pdp_wrapper",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "config_psm_wrapper",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "config_rat_wrapper",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "config_service_domain_wrapper",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "connection_init",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 8
+    },
+    {
+      "name": "connection_is_ready",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "connection_notify_action",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "connection_notify_timer_expired",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 8
+    },
+    {
+      "name": "connection_notify_urc",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "connection_process",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "connection_timer_callback",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 8
+    },
+    {
+      "name": "convert_ber_level_to_percent",
+      "file": "modem/src/cell_modem_common.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "convert_ip_str",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 48
+    },
+    {
+      "name": "convert_rssi_level_to_dbm",
+      "file": "modem/src/cell_modem_common.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "convert_rssi_to_bars",
+      "file": "modem/src/cell_modem_common.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "create_cellular_context",
+      "file": "cellular/src/cell_task.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "deactivate_pdp_context_wrapper",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "decode_timer",
+      "file": "modem/src/cell_modem_common.c",
+      "stack_bytes": 20
+    },
+    {
+      "name": "define_pdp_context",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 232
+    },
+    {
+      "name": "dfota_init",
+      "file": "cellular/src/cell_dfota.c",
+      "stack_bytes": 8
+    },
+    {
+      "name": "dfota_notify_activate",
+      "file": "cellular/src/cell_dfota.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "dfota_notify_cancel",
+      "file": "cellular/src/cell_dfota.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "dfota_notify_start",
+      "file": "cellular/src/cell_dfota.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "dfota_notify_timer_expired",
+      "file": "cellular/src/cell_dfota.c",
+      "stack_bytes": 8
+    },
+    {
+      "name": "dfota_notify_urc",
+      "file": "cellular/src/cell_dfota.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "dfota_notify_write",
+      "file": "cellular/src/cell_dfota.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "dfota_process",
+      "file": "cellular/src/cell_dfota.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "dfota_running_state_check",
+      "file": "cellular/src/cell_dfota.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "disable_functionality",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "does_prefix_match",
+      "file": "modem/src/cell_at.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "download_cancel",
+      "file": "cellular/src/cell_dfota.c",
+      "stack_bytes": 8
+    },
+    {
+      "name": "download_cancel_wrapper",
+      "file": "cellular/src/cell_dfota.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "eg915u_modem_specific_features_set",
+      "file": "modem/src/cell_modem_eg915u.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "eg915u_rat_settings_get",
+      "file": "modem/src/cell_modem_eg915u.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "eg915u_rat_settings_set",
+      "file": "modem/src/cell_modem_eg915u.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "eg915u_service_domain_get",
+      "file": "modem/src/cell_modem_eg915u.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "eg915u_service_domain_set",
+      "file": "modem/src/cell_modem_eg915u.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "enable_functionality",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "encode_timer",
+      "file": "modem/src/cell_modem_common.c",
+      "stack_bytes": 20
+    },
+    {
+      "name": "event_notify",
+      "file": "cellular/src/cell_dfota.c",
+      "stack_bytes": 8
+    },
+    {
+      "name": "event_notify",
+      "file": "cellular/src/cell_test.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "execute",
+      "file": "cellular/src/cell_monitoring.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "execute_command",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 32
+    },
+    {
+      "name": "execute_command_with_side_effect",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 32
+    },
+    {
+      "name": "exit",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "fast_reboot",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "fclose",
+      "file": "",
+      "stack_bytes": 32
+    },
+    {
+      "name": "ferror",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "find_first_available_socket",
+      "file": "cellular/src/cell_socket.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "fopen",
+      "file": "",
+      "stack_bytes": 24
+    },
+    {
+      "name": "fota_write",
+      "file": "cellular/src/cell_dfota.c",
+      "stack_bytes": 8
+    },
+    {
+      "name": "fputc",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "free",
+      "file": "",
+      "stack_bytes": 16
+    },
+    {
+      "name": "freopen",
+      "file": "",
+      "stack_bytes": 24
+    },
+    {
+      "name": "frexp",
+      "file": "",
+      "stack_bytes": 16
+    },
+    {
+      "name": "fseek",
+      "file": "",
+      "stack_bytes": 24
+    },
+    {
+      "name": "ftell",
+      "file": "",
+      "stack_bytes": 8
+    },
+    {
+      "name": "generic_error_handler",
+      "file": "cellular/src/cell_dfota.c",
+      "stack_bytes": 8
+    },
+    {
+      "name": "get_cellular_info",
+      "file": "cellular/src/cell_monitoring.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "get_cellular_info_wrapper",
+      "file": "cellular/src/cell_monitoring.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "get_class_type",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 72
+    },
+    {
+      "name": "get_cs_network_reg_status_wrapper",
+      "file": "cellular/src/cell_monitoring.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "get_eps_network_reg_status_wrapper",
+      "file": "cellular/src/cell_monitoring.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "get_eps_registration_status_wrapper",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "get_fw_ver_wrapper",
+      "file": "cellular/src/cell_monitoring.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "get_gprs_network_reg_status_wrapper",
+      "file": "cellular/src/cell_monitoring.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "get_gprs_registration_status_wrapper",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "get_iccid_wrapper",
+      "file": "cellular/src/cell_monitoring.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "get_imei_wrapper",
+      "file": "cellular/src/cell_monitoring.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "get_imsi_wrapper",
+      "file": "cellular/src/cell_monitoring.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "get_ip_type",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "get_manufacturer_id_wrapper",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "get_manufacturer_info_wrapper",
+      "file": "cellular/src/cell_monitoring.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "get_mode_from_seq",
+      "file": "modem/src/cell_modem_eg915u.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "get_model_id_wrapper",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "get_model_id_wrapper",
+      "file": "cellular/src/cell_monitoring.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "get_modem_info",
+      "file": "cellular/src/cell_monitoring.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "get_modem_version_wrapper",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "get_network_info",
+      "file": "cellular/src/cell_monitoring.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "get_next_reboot_timeout",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "get_operator_info_wrapper",
+      "file": "cellular/src/cell_monitoring.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "get_pdp_status_wrapper",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "get_pdp_status_wrapper",
+      "file": "cellular/src/cell_monitoring.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "get_psm_config_wrapper",
+      "file": "cellular/src/cell_monitoring.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "get_psm_setting",
+      "file": "cellular/src/cell_monitoring.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "get_rat_type",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "get_rat_type",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "get_registration_status",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "get_server_id_from_connect_id",
+      "file": "cellular/src/cell_socket.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "get_service_status",
+      "file": "cellular/src/cell_monitoring.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "get_signal_quality_report_wrapper",
+      "file": "cellular/src/cell_monitoring.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "get_sim_lock_status",
+      "file": "modem/src/cell_modem_common.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "get_sim_readiness_wrapper",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "get_simcard_info",
+      "file": "cellular/src/cell_monitoring.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "get_tcp_socket_status",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 80
+    },
+    {
+      "name": "get_timeout_ms",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "get_urc_index",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "get_urc_mem_type",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 56
+    },
+    {
+      "name": "handle_CME_error",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "handle_CMS_error",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "handle_rejection",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "handle_urc_reg",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "helper_binary_string_to_uint8",
+      "file": "modem/src/cell_modem_helper.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "helper_bytes_to_hex_string",
+      "file": "modem/src/cell_modem_helper.c",
+      "stack_bytes": 32
+    },
+    {
+      "name": "helper_calculate_band_mask",
+      "file": "modem/src/cell_modem_helper.c",
+      "stack_bytes": 56
+    },
+    {
+      "name": "helper_extract_quoted_string",
+      "file": "modem/src/cell_modem_helper.c",
+      "stack_bytes": 32
+    },
+    {
+      "name": "helper_ip_convert",
+      "file": "modem/src/cell_modem_helper.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "helper_ip_to_str",
+      "file": "modem/src/cell_modem_helper.c",
+      "stack_bytes": 56
+    },
+    {
+      "name": "helper_ipv4_parse",
+      "file": "modem/src/cell_modem_helper.c",
+      "stack_bytes": 48
+    },
+    {
+      "name": "helper_ipv6_parse",
+      "file": "modem/src/cell_modem_helper.c",
+      "stack_bytes": 32
+    },
+    {
+      "name": "helper_is_hex_digit",
+      "file": "modem/src/cell_modem_helper.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "helper_is_valid_gsm_band",
+      "file": "modem/src/cell_modem_helper.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "helper_is_valid_lte_band",
+      "file": "modem/src/cell_modem_helper.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "helper_parse_gsm_band",
+      "file": "modem/src/cell_modem_helper.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "helper_parse_lte_band",
+      "file": "modem/src/cell_modem_helper.c",
+      "stack_bytes": 72
+    },
+    {
+      "name": "helper_str_to_ip",
+      "file": "modem/src/cell_modem_helper.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "helper_uint8_to_binary",
+      "file": "modem/src/cell_modem_helper.c",
+      "stack_bytes": 8
+    },
+    {
+      "name": "hex_char_to_val",
+      "file": "modem/src/cell_modem_helper.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "hl7900_cellular_info_get",
+      "file": "modem/src/cell_modem_semtech_hl7900.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "hl7900_serving_cell_get",
+      "file": "modem/src/cell_modem_semtech_hl7900.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "inactive_timer_callback",
+      "file": "cellular/src/cell_socket.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "initialize",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "initialize",
+      "file": "cellular/src/cell_dfota.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "is_band_different",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "is_connected",
+      "file": "cellular/src/cell_monitoring.c",
+      "stack_bytes": 8
+    },
+    {
+      "name": "is_dfota_not_running",
+      "file": "cellular/src/cell_monitoring.c",
+      "stack_bytes": 8
+    },
+    {
+      "name": "is_fast_reboot",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "is_gsm_rat",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 8
+    },
+    {
+      "name": "is_line_final_resp",
+      "file": "modem/src/cell_at.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "is_lte_rat",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 8
+    },
+    {
+      "name": "is_modem_ready",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "is_prefix_present",
+      "file": "modem/src/cell_at.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "is_rat_different",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "is_rat_supports",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "is_registered",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "is_settings_valid",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "is_socket_service_server",
+      "file": "cellular/src/cell_socket.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "isspace",
+      "file": "",
+      "stack_bytes": 8
+    },
+    {
+      "name": "load_modem_driver",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 136
+    },
+    {
+      "name": "local_init",
+      "file": "cellular/src/cell_dfota.c",
+      "stack_bytes": 8
+    },
+    {
+      "name": "local_init_wrapper",
+      "file": "cellular/src/cell_dfota.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "local_trigger_wrapper",
+      "file": "cellular/src/cell_dfota.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "local_write_wrapper",
+      "file": "cellular/src/cell_dfota.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "main",
+      "file": "",
+      "stack_bytes": 8
+    },
+    {
+      "name": "malloc",
+      "file": "",
+      "stack_bytes": 16
+    },
+    {
+      "name": "match_rat_to_sequence",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "match_seq_to_rat",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "memcmp",
+      "file": "",
+      "stack_bytes": 8
+    },
+    {
+      "name": "modem_power_off_software_wrapper",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "monitoring_notify_get_cellular_info",
+      "file": "cellular/src/cell_monitoring.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "monitoring_notify_get_modem_info",
+      "file": "cellular/src/cell_monitoring.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "monitoring_notify_get_network_info",
+      "file": "cellular/src/cell_monitoring.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "monitoring_notify_get_psm_setting",
+      "file": "cellular/src/cell_monitoring.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "monitoring_notify_get_service_status",
+      "file": "cellular/src/cell_monitoring.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "monitoring_notify_get_simcard_info",
+      "file": "cellular/src/cell_monitoring.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "monitoring_process",
+      "file": "cellular/src/cell_monitoring.c",
+      "stack_bytes": 8
+    },
+    {
+      "name": "need_to_re_config",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "net_category_set",
+      "file": "modem/src/cell_modem_bg95.c",
+      "stack_bytes": 80
+    },
+    {
+      "name": "network_reconnect",
+      "file": "cellular/src/cell_dfota.c",
+      "stack_bytes": 8
+    },
+    {
+      "name": "next_action_ACTIVATE_PDP",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "next_action_CHECK_CONFIG",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 32
+    },
+    {
+      "name": "next_action_CONFIG",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "next_action_DEFAULT",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "next_action_HANDLE_REJECTION",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "next_action_INIT",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "next_action_LOAD_MODEM_DRIVER",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "next_action_PREPARE_SIMCARD",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "next_action_READ_NETWORK_STATUS",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "next_action_SETUP_MODEM",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "next_action_START_REGISTRATION",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "notify_ACTIVATE_result",
+      "file": "cellular/src/cell_dfota.c",
+      "stack_bytes": 8
+    },
+    {
+      "name": "notify_START_reject",
+      "file": "cellular/src/cell_dfota.c",
+      "stack_bytes": 8
+    },
+    {
+      "name": "notify_START_result",
+      "file": "cellular/src/cell_dfota.c",
+      "stack_bytes": 8
+    },
+    {
+      "name": "notify_WRITE_result",
+      "file": "cellular/src/cell_dfota.c",
+      "stack_bytes": 8
+    },
+    {
+      "name": "notify_all_context_on_modem_event",
+      "file": "cellular/src/cell_task.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "notify_application",
+      "file": "cellular/src/cell_monitoring.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "notify_event_wrapper",
+      "file": "cellular/src/cell_socket.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "notify_remote_close",
+      "file": "cellular/src/cell_socket.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_and_update_mode",
+      "file": "modem/src/cell_modem_eg915u.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "parse_and_update_rat_seq",
+      "file": "modem/src/cell_modem_bg95.c",
+      "stack_bytes": 32
+    },
+    {
+      "name": "parse_final_resp",
+      "file": "modem/src/cell_at.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "parse_socket_recv_info",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 72
+    },
+    {
+      "name": "parse_urc_cbm_pdu",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "parse_urc_ccwa",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "parse_urc_cds_pdu",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "parse_urc_cdsi",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_cedrxp",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 32
+    },
+    {
+      "name": "parse_urc_cereg",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "parse_urc_cgev_me_class",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "parse_urc_cgev_me_deact",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 48
+    },
+    {
+      "name": "parse_urc_cgev_nw_class",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "parse_urc_cgev_nw_deact",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 48
+    },
+    {
+      "name": "parse_urc_cgev_nw_react",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 48
+    },
+    {
+      "name": "parse_urc_cgev_pdp_act",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_cgev_pdp_deact",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_cgev_reject",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "parse_urc_cgreg",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 48
+    },
+    {
+      "name": "parse_urc_clip",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "parse_urc_cmt_pdu",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "parse_urc_cmti",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "parse_urc_colp",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "parse_urc_cpin",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_creg",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 32
+    },
+    {
+      "name": "parse_urc_cring",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 80
+    },
+    {
+      "name": "parse_urc_crtdcp",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 1384
+    },
+    {
+      "name": "parse_urc_cssi",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_cssu",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_ctze",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 72
+    },
+    {
+      "name": "parse_urc_ctzv",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_default",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_fota_coapend",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_fota_coapstart",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_fota_downloaded",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_fota_downloading",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_fota_end",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_fota_ftpend",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "parse_urc_fota_ftpstart",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_fota_httpend",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_fota_httpstart",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_fota_start_updating",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_fota_updating",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_jamming_ind",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "parse_urc_kcnx_ind",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 80
+    },
+    {
+      "name": "parse_urc_ktcp_data",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_ktcp_ind",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_ktcp_notif",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "parse_urc_ktcp_srvreq",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 96
+    },
+    {
+      "name": "parse_urc_psm_timer",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_qcellscan",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 528
+    },
+    {
+      "name": "parse_urc_qcoapack",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 32
+    },
+    {
+      "name": "parse_urc_qcoapclose",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_qcoapind",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 32
+    },
+    {
+      "name": "parse_urc_qcoapopen",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_qcoaprecv",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "parse_urc_qcscon",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "parse_urc_qftpclose",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_qftpcwd",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_qftpdel",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_qftpget",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "parse_urc_qftplen",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "parse_urc_qftplist",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "parse_urc_qftpmdtm",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 128
+    },
+    {
+      "name": "parse_urc_qftpmkdir",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_qftpmlsd",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "parse_urc_qftpnlst",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "parse_urc_qftpopen",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_qftpput",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "parse_urc_qftppwd",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 536
+    },
+    {
+      "name": "parse_urc_qftprename",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_qftprmdir",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_qftpsize",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "parse_urc_qftpstat",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_qhttp_get",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "parse_urc_qhttp_post",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "parse_urc_qhttp_postfile",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "parse_urc_qhttp_put",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "parse_urc_qhttp_putfile",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "parse_urc_qhttp_read",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_qhttp_readfile",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_qind_csq",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_qind_geofence",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 128
+    },
+    {
+      "name": "parse_urc_qind_open",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_qiopen",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_qiurc_closed",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_qiurc_dnsgip",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 256
+    },
+    {
+      "name": "parse_urc_qiurc_incoming",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 96
+    },
+    {
+      "name": "parse_urc_qiurc_pdp_deact",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_qiurc_recv_buffer_mode",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_qlwdereg",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_qlwreg",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_qlwurc_event",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_qlwurc_observe",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 304
+    },
+    {
+      "name": "parse_urc_qlwurc_recv",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 296
+    },
+    {
+      "name": "parse_urc_qlwurc_uldata",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 304
+    },
+    {
+      "name": "parse_urc_qmtclose",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_qmtconn",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "parse_urc_qmtdisc",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_qmtopen",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_qmtping",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_qmtpub",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 32
+    },
+    {
+      "name": "parse_urc_qmtpuns",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "parse_urc_qmtsn_pub",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 32
+    },
+    {
+      "name": "parse_urc_qmtsn_recv",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 408
+    },
+    {
+      "name": "parse_urc_qmtsn_reg",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "parse_urc_qmtsn_sleep",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "parse_urc_qmtsn_stat",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_qmtsn_sub",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 32
+    },
+    {
+      "name": "parse_urc_qmtsn_uns",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "parse_urc_qmtsn_willupd",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "parse_urc_qmtstat",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_qmtsub",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 32
+    },
+    {
+      "name": "parse_urc_qntp",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 88
+    },
+    {
+      "name": "parse_urc_qping",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 192
+    },
+    {
+      "name": "parse_urc_qptwedrxp",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 32
+    },
+    {
+      "name": "parse_urc_qscrub_end",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_qsimstat",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_qssl_buffer_mode",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_qssl_closed",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_qssl_open",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_qusim",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "parse_urc_recv",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "parse_urc_xtra_dl",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "pdp_type_from_str",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "pdp_type_to_str",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "perform_action",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 456
+    },
+    {
+      "name": "power_modem_up_down_gpio",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 8
+    },
+    {
+      "name": "prepare_simcard",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "process_message",
+      "file": "cellular/src/cell_task.c",
+      "stack_bytes": 8
+    },
+    {
+      "name": "process_remaining_data",
+      "file": "modem/src/cell_at.c",
+      "stack_bytes": 136
+    },
+    {
+      "name": "quectel_cellular_info_get",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "quectel_enable_functionality",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "quectel_firmware_version_get",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "quectel_handle_urc_cereg",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "quectel_handle_urc_cgreg",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "quectel_handle_urc_cpin",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "quectel_handle_urc_qiurc_pdpdeact",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 8
+    },
+    {
+      "name": "quectel_handle_urc_qusim",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "quectel_handle_urc_socket_closed",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "quectel_handle_urc_socket_incoming",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "quectel_handle_urc_socket_open",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "quectel_handle_urc_socket_recv",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "quectel_iccid_get",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "quectel_map_cme_error",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "quectel_map_cms_error",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "quectel_module_poweroff",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "quectel_neighbour_cell_get",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "quectel_operator_info_get",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "quectel_operator_settings_set",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 144
+    },
+    {
+      "name": "quectel_pdp_activate",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 56
+    },
+    {
+      "name": "quectel_pdp_deactivate",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 56
+    },
+    {
+      "name": "quectel_pdp_settings_get",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 64
+    },
+    {
+      "name": "quectel_pdp_settings_set",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 240
+    },
+    {
+      "name": "quectel_pdp_status_get",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "quectel_serving_cell_get",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "quectel_sim_pin_enter",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 56
+    },
+    {
+      "name": "quectel_sim_readiness_get",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "quectel_socket_check_usability",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 80
+    },
+    {
+      "name": "quectel_socket_close",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 72
+    },
+    {
+      "name": "quectel_socket_create",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 176
+    },
+    {
+      "name": "quectel_socket_get_data_verify",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 120
+    },
+    {
+      "name": "quectel_socket_query_service_status",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 72
+    },
+    {
+      "name": "quectel_socket_receive",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 104
+    },
+    {
+      "name": "quectel_socket_recv_unread_len_get",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 80
+    },
+    {
+      "name": "quectel_socket_send",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 136
+    },
+    {
+      "name": "quectel_urc_port_config",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "query_operator_info_wrapper",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "query_pdp_settings_wrapper",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "query_psm_settings_wrapper",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "query_rat_settings_wrapper",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "query_service_domain_wrapper",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "random_int_wrapper",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "rat_mode_set",
+      "file": "modem/src/cell_modem_eg915u.c",
+      "stack_bytes": 72
+    },
+    {
+      "name": "rat_seq_set",
+      "file": "modem/src/cell_modem_bg95.c",
+      "stack_bytes": 80
+    },
+    {
+      "name": "rat_set",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 80
+    },
+    {
+      "name": "read_and_parse_urc",
+      "file": "cellular/src/cell_task.c",
+      "stack_bytes": 8
+    },
+    {
+      "name": "read_config",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "read_network_status",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 136
+    },
+    {
+      "name": "reboot_modem",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "refresh",
+      "file": "cellular/src/cell_dfota.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "request_prepare",
+      "file": "cellular/src/cell_test.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "reset_inactive_timer",
+      "file": "cellular/src/cell_socket.c",
+      "stack_bytes": 8
+    },
+    {
+      "name": "reset_modem_gpio",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 8
+    },
+    {
+      "name": "reset_modem_software_wrapper",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "reset_reboot_counter",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "result_process",
+      "file": "cellular/src/cell_test.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "seek_and_parse_error_resp",
+      "file": "modem/src/cell_at.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "seek_and_parse_final_resp",
+      "file": "modem/src/cell_at.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "seek_one_line_and_parse_final_resp",
+      "file": "modem/src/cell_at.c",
+      "stack_bytes": 32
+    },
+    {
+      "name": "semtech_band_mapping_rat",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "semtech_band_set",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 168
+    },
+    {
+      "name": "semtech_enable_sim_functionality",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "semtech_firmware_version_get",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "semtech_gprs_connection_set",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 232
+    },
+    {
+      "name": "semtech_handle_urc_cereg",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "semtech_handle_urc_ktcp_data",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "semtech_handle_urc_ktcp_ind",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "semtech_handle_urc_ktcp_notif",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "semtech_handle_urc_ktcp_srvreq",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "semtech_iccid_get",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "semtech_map_cme_error",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "semtech_map_cms_error",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "semtech_modem_specific_features_set",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "semtech_module_poweroff",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "semtech_operator_info_get",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "semtech_operator_settings_set",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 152
+    },
+    {
+      "name": "semtech_pdp_activate",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 56
+    },
+    {
+      "name": "semtech_pdp_address_get",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "semtech_pdp_authentication_set",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 232
+    },
+    {
+      "name": "semtech_pdp_context_info_get",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "semtech_pdp_deactivate",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 56
+    },
+    {
+      "name": "semtech_pdp_settings_get",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "semtech_pdp_settings_set",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "semtech_pdp_status_get",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "semtech_rat_settings_get",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "semtech_rat_settings_set",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "semtech_service_domain_get",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "semtech_service_domain_set",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 80
+    },
+    {
+      "name": "semtech_sim_enter_pin",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 56
+    },
+    {
+      "name": "semtech_sim_readiness_info_get",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "semtech_socket_check_usability",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 80
+    },
+    {
+      "name": "semtech_socket_close",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "semtech_socket_create",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 168
+    },
+    {
+      "name": "semtech_socket_receive",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 104
+    },
+    {
+      "name": "semtech_socket_recv_unread_len_get",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 80
+    },
+    {
+      "name": "semtech_socket_send",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 120
+    },
+    {
+      "name": "semtech_tcp_config_socket",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 248
+    },
+    {
+      "name": "send_custom_at_command",
+      "file": "cellular/src/cell_test.c",
+      "stack_bytes": 104
+    },
+    {
+      "name": "send_custom_at_list",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "send_msg_with_data",
+      "file": "cellular/src/cell_task.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "send_msg_with_value",
+      "file": "cellular/src/cell_task.c",
+      "stack_bytes": 40
+    },
+    {
+      "name": "send_socket_data_wait_connect",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 160
+    },
+    {
+      "name": "send_socket_data_wait_prefix",
+      "file": "modem/src/cell_modem_quectel.c",
+      "stack_bytes": 176
+    },
+    {
+      "name": "service_domain_mapping_cemode",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 8
+    },
+    {
+      "name": "set_bit",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "set_error_display_format_wrapper",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "set_registration_urcs_format_wrapper",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "set_ue_functionality_wrapper",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "setup_modem",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 136
+    },
+    {
+      "name": "setup_modem_specific_feature_wrapper",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "setvbuf",
+      "file": "",
+      "stack_bytes": 16
+    },
+    {
+      "name": "sim_enter_pin_wrapper",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 96
+    },
+    {
+      "name": "slow_reboot",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "socket_check_usability_wrapper",
+      "file": "cellular/src/cell_socket.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "socket_close",
+      "file": "cellular/src/cell_socket.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "socket_close_incoming",
+      "file": "cellular/src/cell_socket.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "socket_close_wrapper",
+      "file": "cellular/src/cell_socket.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "socket_create",
+      "file": "cellular/src/cell_socket.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "socket_create_wrapper",
+      "file": "cellular/src/cell_socket.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "socket_init",
+      "file": "cellular/src/cell_socket.c",
+      "stack_bytes": 8
+    },
+    {
+      "name": "socket_notify_close",
+      "file": "cellular/src/cell_socket.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "socket_notify_create",
+      "file": "cellular/src/cell_socket.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "socket_notify_recv",
+      "file": "cellular/src/cell_socket.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "socket_notify_send",
+      "file": "cellular/src/cell_socket.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "socket_notify_verify_data",
+      "file": "cellular/src/cell_socket.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "socket_process",
+      "file": "cellular/src/cell_socket.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "socket_process_urc_closed",
+      "file": "cellular/src/cell_socket.c",
+      "stack_bytes": 8
+    },
+    {
+      "name": "socket_process_urc_incoming_connection",
+      "file": "cellular/src/cell_socket.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "socket_process_urc_incoming_data",
+      "file": "cellular/src/cell_socket.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "socket_process_urc_open_failed",
+      "file": "cellular/src/cell_socket.c",
+      "stack_bytes": 8
+    },
+    {
+      "name": "socket_process_urc_opened_success",
+      "file": "cellular/src/cell_socket.c",
+      "stack_bytes": 8
+    },
+    {
+      "name": "socket_receive",
+      "file": "cellular/src/cell_socket.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "socket_receive_wrapper",
+      "file": "cellular/src/cell_socket.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "socket_remote_close",
+      "file": "cellular/src/cell_socket.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "socket_send",
+      "file": "cellular/src/cell_socket.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "socket_send_wrapper",
+      "file": "cellular/src/cell_socket.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "socket_sent_info_get_wrapper",
+      "file": "cellular/src/cell_socket.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "socket_verify_data",
+      "file": "cellular/src/cell_socket.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "sscanf",
+      "file": "",
+      "stack_bytes": 72
+    },
+    {
+      "name": "start_inactive_timer",
+      "file": "cellular/src/cell_socket.c",
+      "stack_bytes": 8
+    },
+    {
+      "name": "start_registration",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "start_timer",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 8
+    },
+    {
+      "name": "stop_inactive_timer",
+      "file": "cellular/src/cell_socket.c",
+      "stack_bytes": 8
+    },
+    {
+      "name": "stop_timer",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 8
+    },
+    {
+      "name": "strcat",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "strchr",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "strcmp",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "strcpy",
+      "file": "",
+      "stack_bytes": 12
+    },
+    {
+      "name": "strlen",
+      "file": "",
+      "stack_bytes": 8
+    },
+    {
+      "name": "strncmp",
+      "file": "",
+      "stack_bytes": 16
+    },
+    {
+      "name": "strncpy",
+      "file": "",
+      "stack_bytes": 8
+    },
+    {
+      "name": "strstr",
+      "file": "",
+      "stack_bytes": 12
+    },
+    {
+      "name": "success_handler",
+      "file": "cellular/src/cell_dfota.c",
+      "stack_bytes": 8
+    },
+    {
+      "name": "tcp_close",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 72
+    },
+    {
+      "name": "tcp_connect",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 168
+    },
+    {
+      "name": "tcp_delete",
+      "file": "modem/src/cell_modem_semtech.c",
+      "stack_bytes": 72
+    },
+    {
+      "name": "timer_callback",
+      "file": "cellular/src/cell_dfota.c",
+      "stack_bytes": 8
+    },
+    {
+      "name": "timer_start",
+      "file": "cellular/src/cell_dfota.c",
+      "stack_bytes": 8
+    },
+    {
+      "name": "timer_stop",
+      "file": "cellular/src/cell_dfota.c",
+      "stack_bytes": 8
+    },
+    {
+      "name": "trim_and_validate_line",
+      "file": "modem/src/cell_at.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "turn_off_echo_mode_wrapper",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "update_reboot_timeout",
+      "file": "cellular/src/cell_connect.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "update_scan_seq_from_iotop_mode",
+      "file": "modem/src/cell_modem_bg95.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "urc_is_without_prefix",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 24
+    },
+    {
+      "name": "urc_parse_unsolicited_response",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "urc_set_handler_table",
+      "file": "modem/src/cell_urc.c",
+      "stack_bytes": 0
+    },
+    {
+      "name": "vprintf",
+      "file": "",
+      "stack_bytes": 0
+    },
+    {
+      "name": "wireless_init",
+      "file": "cellular/src/cell_dfota.c",
+      "stack_bytes": 8
+    },
+    {
+      "name": "wireless_init_wrapper",
+      "file": "cellular/src/cell_dfota.c",
+      "stack_bytes": 16
+    },
+    {
+      "name": "wireless_start_wrapper",
+      "file": "cellular/src/cell_dfota.c",
+      "stack_bytes": 16
+    }
+  ],
+  "dynamic_or_unknown_functions": [],
+  "paths": [
+    {
+      "stack_bytes": 2832,
+      "nodes": [
+        {
+          "name": "cell_task",
+          "file": "cellular/src/cell_task.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "process_message",
+          "file": "cellular/src/cell_task.c",
+          "stack_bytes": 8
+        },
+        {
+          "name": "connection_process",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "perform_action",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 456
+        },
+        {
+          "name": "start_registration",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 24
+        },
+        {
+          "name": "check_operator_status",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 152
+        },
+        {
+          "name": "execute_command",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 32
+        },
+        {
+          "name": "config_pdp_wrapper",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "semtech_pdp_settings_set",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "define_pdp_context",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 232
+        },
+        {
+          "name": "at_command_request",
+          "file": "modem/src/cell_at.c",
+          "stack_bytes": 176
+        },
+        {
+          "name": "process_remaining_data",
+          "file": "modem/src/cell_at.c",
+          "stack_bytes": 136
+        },
+        {
+          "name": "urc_parse_unsolicited_response",
+          "file": "modem/src/cell_urc.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "parse_urc_crtdcp",
+          "file": "modem/src/cell_urc.c",
+          "stack_bytes": 1384
+        },
+        {
+          "name": "quectel_handle_urc_socket_incoming",
+          "file": "modem/src/cell_modem_quectel.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "socket_process_urc_incoming_connection",
+          "file": "cellular/src/cell_socket.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "socket_close_wrapper",
+          "file": "cellular/src/cell_socket.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "semtech_socket_close",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 24
+        },
+        {
+          "name": "get_tcp_socket_status",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 80
+        }
+      ]
+    },
+    {
+      "stack_bytes": 2832,
+      "nodes": [
+        {
+          "name": "cell_task",
+          "file": "cellular/src/cell_task.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "process_message",
+          "file": "cellular/src/cell_task.c",
+          "stack_bytes": 8
+        },
+        {
+          "name": "connection_process",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "perform_action",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 456
+        },
+        {
+          "name": "start_registration",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 24
+        },
+        {
+          "name": "check_operator_status",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 152
+        },
+        {
+          "name": "execute_command",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 32
+        },
+        {
+          "name": "config_pdp_wrapper",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "semtech_pdp_settings_set",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "define_pdp_context",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 232
+        },
+        {
+          "name": "at_command_request",
+          "file": "modem/src/cell_at.c",
+          "stack_bytes": 176
+        },
+        {
+          "name": "process_remaining_data",
+          "file": "modem/src/cell_at.c",
+          "stack_bytes": 136
+        },
+        {
+          "name": "urc_parse_unsolicited_response",
+          "file": "modem/src/cell_urc.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "parse_urc_crtdcp",
+          "file": "modem/src/cell_urc.c",
+          "stack_bytes": 1384
+        },
+        {
+          "name": "semtech_handle_urc_ktcp_srvreq",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "socket_process_urc_incoming_connection",
+          "file": "cellular/src/cell_socket.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "socket_close_wrapper",
+          "file": "cellular/src/cell_socket.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "semtech_socket_close",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 24
+        },
+        {
+          "name": "get_tcp_socket_status",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 80
+        }
+      ]
+    },
+    {
+      "stack_bytes": 2832,
+      "nodes": [
+        {
+          "name": "cell_task",
+          "file": "cellular/src/cell_task.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "process_message",
+          "file": "cellular/src/cell_task.c",
+          "stack_bytes": 8
+        },
+        {
+          "name": "connection_process",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "perform_action",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 456
+        },
+        {
+          "name": "start_registration",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 24
+        },
+        {
+          "name": "check_operator_status",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 152
+        },
+        {
+          "name": "execute_command",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 32
+        },
+        {
+          "name": "config_pdp_wrapper",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "semtech_pdp_settings_set",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "semtech_pdp_authentication_set",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 232
+        },
+        {
+          "name": "at_command_request",
+          "file": "modem/src/cell_at.c",
+          "stack_bytes": 176
+        },
+        {
+          "name": "process_remaining_data",
+          "file": "modem/src/cell_at.c",
+          "stack_bytes": 136
+        },
+        {
+          "name": "urc_parse_unsolicited_response",
+          "file": "modem/src/cell_urc.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "parse_urc_crtdcp",
+          "file": "modem/src/cell_urc.c",
+          "stack_bytes": 1384
+        },
+        {
+          "name": "quectel_handle_urc_socket_incoming",
+          "file": "modem/src/cell_modem_quectel.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "socket_process_urc_incoming_connection",
+          "file": "cellular/src/cell_socket.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "socket_close_wrapper",
+          "file": "cellular/src/cell_socket.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "semtech_socket_close",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 24
+        },
+        {
+          "name": "get_tcp_socket_status",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 80
+        }
+      ]
+    },
+    {
+      "stack_bytes": 2832,
+      "nodes": [
+        {
+          "name": "cell_task",
+          "file": "cellular/src/cell_task.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "process_message",
+          "file": "cellular/src/cell_task.c",
+          "stack_bytes": 8
+        },
+        {
+          "name": "connection_process",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "perform_action",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 456
+        },
+        {
+          "name": "start_registration",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 24
+        },
+        {
+          "name": "check_operator_status",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 152
+        },
+        {
+          "name": "execute_command",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 32
+        },
+        {
+          "name": "config_pdp_wrapper",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "semtech_pdp_settings_set",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "semtech_pdp_authentication_set",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 232
+        },
+        {
+          "name": "at_command_request",
+          "file": "modem/src/cell_at.c",
+          "stack_bytes": 176
+        },
+        {
+          "name": "process_remaining_data",
+          "file": "modem/src/cell_at.c",
+          "stack_bytes": 136
+        },
+        {
+          "name": "urc_parse_unsolicited_response",
+          "file": "modem/src/cell_urc.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "parse_urc_crtdcp",
+          "file": "modem/src/cell_urc.c",
+          "stack_bytes": 1384
+        },
+        {
+          "name": "semtech_handle_urc_ktcp_srvreq",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "socket_process_urc_incoming_connection",
+          "file": "cellular/src/cell_socket.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "socket_close_wrapper",
+          "file": "cellular/src/cell_socket.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "semtech_socket_close",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 24
+        },
+        {
+          "name": "get_tcp_socket_status",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 80
+        }
+      ]
+    },
+    {
+      "stack_bytes": 2824,
+      "nodes": [
+        {
+          "name": "cell_task",
+          "file": "cellular/src/cell_task.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "process_message",
+          "file": "cellular/src/cell_task.c",
+          "stack_bytes": 8
+        },
+        {
+          "name": "connection_process",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "perform_action",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 456
+        },
+        {
+          "name": "start_registration",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 24
+        },
+        {
+          "name": "check_operator_status",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 152
+        },
+        {
+          "name": "execute_command",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 32
+        },
+        {
+          "name": "config_pdp_wrapper",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "quectel_pdp_settings_set",
+          "file": "modem/src/cell_modem_quectel.c",
+          "stack_bytes": 240
+        },
+        {
+          "name": "at_command_request",
+          "file": "modem/src/cell_at.c",
+          "stack_bytes": 176
+        },
+        {
+          "name": "process_remaining_data",
+          "file": "modem/src/cell_at.c",
+          "stack_bytes": 136
+        },
+        {
+          "name": "urc_parse_unsolicited_response",
+          "file": "modem/src/cell_urc.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "parse_urc_crtdcp",
+          "file": "modem/src/cell_urc.c",
+          "stack_bytes": 1384
+        },
+        {
+          "name": "quectel_handle_urc_socket_incoming",
+          "file": "modem/src/cell_modem_quectel.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "socket_process_urc_incoming_connection",
+          "file": "cellular/src/cell_socket.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "socket_close_wrapper",
+          "file": "cellular/src/cell_socket.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "semtech_socket_close",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 24
+        },
+        {
+          "name": "get_tcp_socket_status",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 80
+        }
+      ]
+    },
+    {
+      "stack_bytes": 2824,
+      "nodes": [
+        {
+          "name": "cell_task",
+          "file": "cellular/src/cell_task.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "process_message",
+          "file": "cellular/src/cell_task.c",
+          "stack_bytes": 8
+        },
+        {
+          "name": "connection_process",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "perform_action",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 456
+        },
+        {
+          "name": "start_registration",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 24
+        },
+        {
+          "name": "check_operator_status",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 152
+        },
+        {
+          "name": "execute_command",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 32
+        },
+        {
+          "name": "config_pdp_wrapper",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "quectel_pdp_settings_set",
+          "file": "modem/src/cell_modem_quectel.c",
+          "stack_bytes": 240
+        },
+        {
+          "name": "at_command_request",
+          "file": "modem/src/cell_at.c",
+          "stack_bytes": 176
+        },
+        {
+          "name": "process_remaining_data",
+          "file": "modem/src/cell_at.c",
+          "stack_bytes": 136
+        },
+        {
+          "name": "urc_parse_unsolicited_response",
+          "file": "modem/src/cell_urc.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "parse_urc_crtdcp",
+          "file": "modem/src/cell_urc.c",
+          "stack_bytes": 1384
+        },
+        {
+          "name": "semtech_handle_urc_ktcp_srvreq",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "socket_process_urc_incoming_connection",
+          "file": "cellular/src/cell_socket.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "socket_close_wrapper",
+          "file": "cellular/src/cell_socket.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "semtech_socket_close",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 24
+        },
+        {
+          "name": "get_tcp_socket_status",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 80
+        }
+      ]
+    },
+    {
+      "stack_bytes": 2824,
+      "nodes": [
+        {
+          "name": "cell_task",
+          "file": "cellular/src/cell_task.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "process_message",
+          "file": "cellular/src/cell_task.c",
+          "stack_bytes": 8
+        },
+        {
+          "name": "connection_process",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "perform_action",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 456
+        },
+        {
+          "name": "start_registration",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 24
+        },
+        {
+          "name": "check_operator_status",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 152
+        },
+        {
+          "name": "execute_command",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 32
+        },
+        {
+          "name": "config_pdp_wrapper",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "semtech_pdp_settings_set",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "define_pdp_context",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 232
+        },
+        {
+          "name": "at_command_request",
+          "file": "modem/src/cell_at.c",
+          "stack_bytes": 176
+        },
+        {
+          "name": "process_remaining_data",
+          "file": "modem/src/cell_at.c",
+          "stack_bytes": 136
+        },
+        {
+          "name": "urc_parse_unsolicited_response",
+          "file": "modem/src/cell_urc.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "parse_urc_crtdcp",
+          "file": "modem/src/cell_urc.c",
+          "stack_bytes": 1384
+        },
+        {
+          "name": "quectel_handle_urc_socket_incoming",
+          "file": "modem/src/cell_modem_quectel.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "socket_process_urc_incoming_connection",
+          "file": "cellular/src/cell_socket.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "socket_close_wrapper",
+          "file": "cellular/src/cell_socket.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "semtech_socket_close",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 24
+        },
+        {
+          "name": "tcp_close",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 72
+        }
+      ]
+    },
+    {
+      "stack_bytes": 2824,
+      "nodes": [
+        {
+          "name": "cell_task",
+          "file": "cellular/src/cell_task.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "process_message",
+          "file": "cellular/src/cell_task.c",
+          "stack_bytes": 8
+        },
+        {
+          "name": "connection_process",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "perform_action",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 456
+        },
+        {
+          "name": "start_registration",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 24
+        },
+        {
+          "name": "check_operator_status",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 152
+        },
+        {
+          "name": "execute_command",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 32
+        },
+        {
+          "name": "config_pdp_wrapper",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "semtech_pdp_settings_set",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "define_pdp_context",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 232
+        },
+        {
+          "name": "at_command_request",
+          "file": "modem/src/cell_at.c",
+          "stack_bytes": 176
+        },
+        {
+          "name": "process_remaining_data",
+          "file": "modem/src/cell_at.c",
+          "stack_bytes": 136
+        },
+        {
+          "name": "urc_parse_unsolicited_response",
+          "file": "modem/src/cell_urc.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "parse_urc_crtdcp",
+          "file": "modem/src/cell_urc.c",
+          "stack_bytes": 1384
+        },
+        {
+          "name": "quectel_handle_urc_socket_incoming",
+          "file": "modem/src/cell_modem_quectel.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "socket_process_urc_incoming_connection",
+          "file": "cellular/src/cell_socket.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "socket_close_wrapper",
+          "file": "cellular/src/cell_socket.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "semtech_socket_close",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 24
+        },
+        {
+          "name": "tcp_delete",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 72
+        }
+      ]
+    },
+    {
+      "stack_bytes": 2824,
+      "nodes": [
+        {
+          "name": "cell_task",
+          "file": "cellular/src/cell_task.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "process_message",
+          "file": "cellular/src/cell_task.c",
+          "stack_bytes": 8
+        },
+        {
+          "name": "connection_process",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "perform_action",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 456
+        },
+        {
+          "name": "start_registration",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 24
+        },
+        {
+          "name": "check_operator_status",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 152
+        },
+        {
+          "name": "execute_command",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 32
+        },
+        {
+          "name": "config_pdp_wrapper",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "semtech_pdp_settings_set",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "define_pdp_context",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 232
+        },
+        {
+          "name": "at_command_request",
+          "file": "modem/src/cell_at.c",
+          "stack_bytes": 176
+        },
+        {
+          "name": "process_remaining_data",
+          "file": "modem/src/cell_at.c",
+          "stack_bytes": 136
+        },
+        {
+          "name": "urc_parse_unsolicited_response",
+          "file": "modem/src/cell_urc.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "parse_urc_crtdcp",
+          "file": "modem/src/cell_urc.c",
+          "stack_bytes": 1384
+        },
+        {
+          "name": "semtech_handle_urc_ktcp_srvreq",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "socket_process_urc_incoming_connection",
+          "file": "cellular/src/cell_socket.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "socket_close_wrapper",
+          "file": "cellular/src/cell_socket.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "semtech_socket_close",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 24
+        },
+        {
+          "name": "tcp_close",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 72
+        }
+      ]
+    },
+    {
+      "stack_bytes": 2824,
+      "nodes": [
+        {
+          "name": "cell_task",
+          "file": "cellular/src/cell_task.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "process_message",
+          "file": "cellular/src/cell_task.c",
+          "stack_bytes": 8
+        },
+        {
+          "name": "connection_process",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "perform_action",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 456
+        },
+        {
+          "name": "start_registration",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 24
+        },
+        {
+          "name": "check_operator_status",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 152
+        },
+        {
+          "name": "execute_command",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 32
+        },
+        {
+          "name": "config_pdp_wrapper",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "semtech_pdp_settings_set",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "define_pdp_context",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 232
+        },
+        {
+          "name": "at_command_request",
+          "file": "modem/src/cell_at.c",
+          "stack_bytes": 176
+        },
+        {
+          "name": "process_remaining_data",
+          "file": "modem/src/cell_at.c",
+          "stack_bytes": 136
+        },
+        {
+          "name": "urc_parse_unsolicited_response",
+          "file": "modem/src/cell_urc.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "parse_urc_crtdcp",
+          "file": "modem/src/cell_urc.c",
+          "stack_bytes": 1384
+        },
+        {
+          "name": "semtech_handle_urc_ktcp_srvreq",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "socket_process_urc_incoming_connection",
+          "file": "cellular/src/cell_socket.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "socket_close_wrapper",
+          "file": "cellular/src/cell_socket.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "semtech_socket_close",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 24
+        },
+        {
+          "name": "tcp_delete",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 72
+        }
+      ]
+    },
+    {
+      "stack_bytes": 2824,
+      "nodes": [
+        {
+          "name": "cell_task",
+          "file": "cellular/src/cell_task.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "process_message",
+          "file": "cellular/src/cell_task.c",
+          "stack_bytes": 8
+        },
+        {
+          "name": "connection_process",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "perform_action",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 456
+        },
+        {
+          "name": "start_registration",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 24
+        },
+        {
+          "name": "check_operator_status",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 152
+        },
+        {
+          "name": "execute_command",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 32
+        },
+        {
+          "name": "config_pdp_wrapper",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "semtech_pdp_settings_set",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "semtech_pdp_authentication_set",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 232
+        },
+        {
+          "name": "at_command_request",
+          "file": "modem/src/cell_at.c",
+          "stack_bytes": 176
+        },
+        {
+          "name": "process_remaining_data",
+          "file": "modem/src/cell_at.c",
+          "stack_bytes": 136
+        },
+        {
+          "name": "urc_parse_unsolicited_response",
+          "file": "modem/src/cell_urc.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "parse_urc_crtdcp",
+          "file": "modem/src/cell_urc.c",
+          "stack_bytes": 1384
+        },
+        {
+          "name": "quectel_handle_urc_socket_incoming",
+          "file": "modem/src/cell_modem_quectel.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "socket_process_urc_incoming_connection",
+          "file": "cellular/src/cell_socket.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "socket_close_wrapper",
+          "file": "cellular/src/cell_socket.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "semtech_socket_close",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 24
+        },
+        {
+          "name": "tcp_close",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 72
+        }
+      ]
+    },
+    {
+      "stack_bytes": 2824,
+      "nodes": [
+        {
+          "name": "cell_task",
+          "file": "cellular/src/cell_task.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "process_message",
+          "file": "cellular/src/cell_task.c",
+          "stack_bytes": 8
+        },
+        {
+          "name": "connection_process",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "perform_action",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 456
+        },
+        {
+          "name": "start_registration",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 24
+        },
+        {
+          "name": "check_operator_status",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 152
+        },
+        {
+          "name": "execute_command",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 32
+        },
+        {
+          "name": "config_pdp_wrapper",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "semtech_pdp_settings_set",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "semtech_pdp_authentication_set",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 232
+        },
+        {
+          "name": "at_command_request",
+          "file": "modem/src/cell_at.c",
+          "stack_bytes": 176
+        },
+        {
+          "name": "process_remaining_data",
+          "file": "modem/src/cell_at.c",
+          "stack_bytes": 136
+        },
+        {
+          "name": "urc_parse_unsolicited_response",
+          "file": "modem/src/cell_urc.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "parse_urc_crtdcp",
+          "file": "modem/src/cell_urc.c",
+          "stack_bytes": 1384
+        },
+        {
+          "name": "quectel_handle_urc_socket_incoming",
+          "file": "modem/src/cell_modem_quectel.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "socket_process_urc_incoming_connection",
+          "file": "cellular/src/cell_socket.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "socket_close_wrapper",
+          "file": "cellular/src/cell_socket.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "semtech_socket_close",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 24
+        },
+        {
+          "name": "tcp_delete",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 72
+        }
+      ]
+    },
+    {
+      "stack_bytes": 2824,
+      "nodes": [
+        {
+          "name": "cell_task",
+          "file": "cellular/src/cell_task.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "process_message",
+          "file": "cellular/src/cell_task.c",
+          "stack_bytes": 8
+        },
+        {
+          "name": "connection_process",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "perform_action",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 456
+        },
+        {
+          "name": "start_registration",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 24
+        },
+        {
+          "name": "check_operator_status",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 152
+        },
+        {
+          "name": "execute_command",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 32
+        },
+        {
+          "name": "config_pdp_wrapper",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "semtech_pdp_settings_set",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "semtech_pdp_authentication_set",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 232
+        },
+        {
+          "name": "at_command_request",
+          "file": "modem/src/cell_at.c",
+          "stack_bytes": 176
+        },
+        {
+          "name": "process_remaining_data",
+          "file": "modem/src/cell_at.c",
+          "stack_bytes": 136
+        },
+        {
+          "name": "urc_parse_unsolicited_response",
+          "file": "modem/src/cell_urc.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "parse_urc_crtdcp",
+          "file": "modem/src/cell_urc.c",
+          "stack_bytes": 1384
+        },
+        {
+          "name": "semtech_handle_urc_ktcp_srvreq",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "socket_process_urc_incoming_connection",
+          "file": "cellular/src/cell_socket.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "socket_close_wrapper",
+          "file": "cellular/src/cell_socket.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "semtech_socket_close",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 24
+        },
+        {
+          "name": "tcp_close",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 72
+        }
+      ]
+    },
+    {
+      "stack_bytes": 2824,
+      "nodes": [
+        {
+          "name": "cell_task",
+          "file": "cellular/src/cell_task.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "process_message",
+          "file": "cellular/src/cell_task.c",
+          "stack_bytes": 8
+        },
+        {
+          "name": "connection_process",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "perform_action",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 456
+        },
+        {
+          "name": "start_registration",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 24
+        },
+        {
+          "name": "check_operator_status",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 152
+        },
+        {
+          "name": "execute_command",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 32
+        },
+        {
+          "name": "config_pdp_wrapper",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "semtech_pdp_settings_set",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "semtech_pdp_authentication_set",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 232
+        },
+        {
+          "name": "at_command_request",
+          "file": "modem/src/cell_at.c",
+          "stack_bytes": 176
+        },
+        {
+          "name": "process_remaining_data",
+          "file": "modem/src/cell_at.c",
+          "stack_bytes": 136
+        },
+        {
+          "name": "urc_parse_unsolicited_response",
+          "file": "modem/src/cell_urc.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "parse_urc_crtdcp",
+          "file": "modem/src/cell_urc.c",
+          "stack_bytes": 1384
+        },
+        {
+          "name": "semtech_handle_urc_ktcp_srvreq",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "socket_process_urc_incoming_connection",
+          "file": "cellular/src/cell_socket.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "socket_close_wrapper",
+          "file": "cellular/src/cell_socket.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "semtech_socket_close",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 24
+        },
+        {
+          "name": "tcp_delete",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 72
+        }
+      ]
+    },
+    {
+      "stack_bytes": 2816,
+      "nodes": [
+        {
+          "name": "cell_task",
+          "file": "cellular/src/cell_task.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "process_message",
+          "file": "cellular/src/cell_task.c",
+          "stack_bytes": 8
+        },
+        {
+          "name": "connection_process",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "perform_action",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 456
+        },
+        {
+          "name": "start_registration",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 24
+        },
+        {
+          "name": "check_operator_status",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 152
+        },
+        {
+          "name": "execute_command",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 32
+        },
+        {
+          "name": "config_pdp_wrapper",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "quectel_pdp_settings_set",
+          "file": "modem/src/cell_modem_quectel.c",
+          "stack_bytes": 240
+        },
+        {
+          "name": "at_command_request",
+          "file": "modem/src/cell_at.c",
+          "stack_bytes": 176
+        },
+        {
+          "name": "process_remaining_data",
+          "file": "modem/src/cell_at.c",
+          "stack_bytes": 136
+        },
+        {
+          "name": "urc_parse_unsolicited_response",
+          "file": "modem/src/cell_urc.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "parse_urc_crtdcp",
+          "file": "modem/src/cell_urc.c",
+          "stack_bytes": 1384
+        },
+        {
+          "name": "quectel_handle_urc_socket_incoming",
+          "file": "modem/src/cell_modem_quectel.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "socket_process_urc_incoming_connection",
+          "file": "cellular/src/cell_socket.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "socket_close_wrapper",
+          "file": "cellular/src/cell_socket.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "semtech_socket_close",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 24
+        },
+        {
+          "name": "tcp_close",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 72
+        }
+      ]
+    },
+    {
+      "stack_bytes": 2816,
+      "nodes": [
+        {
+          "name": "cell_task",
+          "file": "cellular/src/cell_task.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "process_message",
+          "file": "cellular/src/cell_task.c",
+          "stack_bytes": 8
+        },
+        {
+          "name": "connection_process",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "perform_action",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 456
+        },
+        {
+          "name": "start_registration",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 24
+        },
+        {
+          "name": "check_operator_status",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 152
+        },
+        {
+          "name": "execute_command",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 32
+        },
+        {
+          "name": "config_pdp_wrapper",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "quectel_pdp_settings_set",
+          "file": "modem/src/cell_modem_quectel.c",
+          "stack_bytes": 240
+        },
+        {
+          "name": "at_command_request",
+          "file": "modem/src/cell_at.c",
+          "stack_bytes": 176
+        },
+        {
+          "name": "process_remaining_data",
+          "file": "modem/src/cell_at.c",
+          "stack_bytes": 136
+        },
+        {
+          "name": "urc_parse_unsolicited_response",
+          "file": "modem/src/cell_urc.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "parse_urc_crtdcp",
+          "file": "modem/src/cell_urc.c",
+          "stack_bytes": 1384
+        },
+        {
+          "name": "quectel_handle_urc_socket_incoming",
+          "file": "modem/src/cell_modem_quectel.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "socket_process_urc_incoming_connection",
+          "file": "cellular/src/cell_socket.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "socket_close_wrapper",
+          "file": "cellular/src/cell_socket.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "semtech_socket_close",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 24
+        },
+        {
+          "name": "tcp_delete",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 72
+        }
+      ]
+    },
+    {
+      "stack_bytes": 2816,
+      "nodes": [
+        {
+          "name": "cell_task",
+          "file": "cellular/src/cell_task.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "process_message",
+          "file": "cellular/src/cell_task.c",
+          "stack_bytes": 8
+        },
+        {
+          "name": "connection_process",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "perform_action",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 456
+        },
+        {
+          "name": "start_registration",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 24
+        },
+        {
+          "name": "check_operator_status",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 152
+        },
+        {
+          "name": "execute_command",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 32
+        },
+        {
+          "name": "config_pdp_wrapper",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "quectel_pdp_settings_set",
+          "file": "modem/src/cell_modem_quectel.c",
+          "stack_bytes": 240
+        },
+        {
+          "name": "at_command_request",
+          "file": "modem/src/cell_at.c",
+          "stack_bytes": 176
+        },
+        {
+          "name": "process_remaining_data",
+          "file": "modem/src/cell_at.c",
+          "stack_bytes": 136
+        },
+        {
+          "name": "urc_parse_unsolicited_response",
+          "file": "modem/src/cell_urc.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "parse_urc_crtdcp",
+          "file": "modem/src/cell_urc.c",
+          "stack_bytes": 1384
+        },
+        {
+          "name": "semtech_handle_urc_ktcp_srvreq",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "socket_process_urc_incoming_connection",
+          "file": "cellular/src/cell_socket.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "socket_close_wrapper",
+          "file": "cellular/src/cell_socket.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "semtech_socket_close",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 24
+        },
+        {
+          "name": "tcp_close",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 72
+        }
+      ]
+    },
+    {
+      "stack_bytes": 2816,
+      "nodes": [
+        {
+          "name": "cell_task",
+          "file": "cellular/src/cell_task.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "process_message",
+          "file": "cellular/src/cell_task.c",
+          "stack_bytes": 8
+        },
+        {
+          "name": "connection_process",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "perform_action",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 456
+        },
+        {
+          "name": "start_registration",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 24
+        },
+        {
+          "name": "check_operator_status",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 152
+        },
+        {
+          "name": "execute_command",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 32
+        },
+        {
+          "name": "config_pdp_wrapper",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "quectel_pdp_settings_set",
+          "file": "modem/src/cell_modem_quectel.c",
+          "stack_bytes": 240
+        },
+        {
+          "name": "at_command_request",
+          "file": "modem/src/cell_at.c",
+          "stack_bytes": 176
+        },
+        {
+          "name": "process_remaining_data",
+          "file": "modem/src/cell_at.c",
+          "stack_bytes": 136
+        },
+        {
+          "name": "urc_parse_unsolicited_response",
+          "file": "modem/src/cell_urc.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "parse_urc_crtdcp",
+          "file": "modem/src/cell_urc.c",
+          "stack_bytes": 1384
+        },
+        {
+          "name": "semtech_handle_urc_ktcp_srvreq",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "socket_process_urc_incoming_connection",
+          "file": "cellular/src/cell_socket.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "socket_close_wrapper",
+          "file": "cellular/src/cell_socket.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "semtech_socket_close",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 24
+        },
+        {
+          "name": "tcp_delete",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 72
+        }
+      ]
+    },
+    {
+      "stack_bytes": 2800,
+      "nodes": [
+        {
+          "name": "cell_task",
+          "file": "cellular/src/cell_task.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "process_message",
+          "file": "cellular/src/cell_task.c",
+          "stack_bytes": 8
+        },
+        {
+          "name": "connection_process",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "perform_action",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 456
+        },
+        {
+          "name": "start_registration",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 24
+        },
+        {
+          "name": "check_operator_status",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 152
+        },
+        {
+          "name": "execute_command",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 32
+        },
+        {
+          "name": "config_pdp_wrapper",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "semtech_pdp_settings_set",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "define_pdp_context",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 232
+        },
+        {
+          "name": "at_command_request",
+          "file": "modem/src/cell_at.c",
+          "stack_bytes": 176
+        },
+        {
+          "name": "process_remaining_data",
+          "file": "modem/src/cell_at.c",
+          "stack_bytes": 136
+        },
+        {
+          "name": "urc_parse_unsolicited_response",
+          "file": "modem/src/cell_urc.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "parse_urc_crtdcp",
+          "file": "modem/src/cell_urc.c",
+          "stack_bytes": 1384
+        },
+        {
+          "name": "quectel_handle_urc_socket_incoming",
+          "file": "modem/src/cell_modem_quectel.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "socket_process_urc_incoming_connection",
+          "file": "cellular/src/cell_socket.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "socket_close_wrapper",
+          "file": "cellular/src/cell_socket.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "quectel_socket_close",
+          "file": "modem/src/cell_modem_quectel.c",
+          "stack_bytes": 72
+        }
+      ]
+    },
+    {
+      "stack_bytes": 2800,
+      "nodes": [
+        {
+          "name": "cell_task",
+          "file": "cellular/src/cell_task.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "process_message",
+          "file": "cellular/src/cell_task.c",
+          "stack_bytes": 8
+        },
+        {
+          "name": "connection_process",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "perform_action",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 456
+        },
+        {
+          "name": "start_registration",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 24
+        },
+        {
+          "name": "check_operator_status",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 152
+        },
+        {
+          "name": "execute_command",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 32
+        },
+        {
+          "name": "config_pdp_wrapper",
+          "file": "cellular/src/cell_connect.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "semtech_pdp_settings_set",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "define_pdp_context",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 232
+        },
+        {
+          "name": "at_command_request",
+          "file": "modem/src/cell_at.c",
+          "stack_bytes": 176
+        },
+        {
+          "name": "process_remaining_data",
+          "file": "modem/src/cell_at.c",
+          "stack_bytes": 136
+        },
+        {
+          "name": "urc_parse_unsolicited_response",
+          "file": "modem/src/cell_urc.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "parse_urc_crtdcp",
+          "file": "modem/src/cell_urc.c",
+          "stack_bytes": 1384
+        },
+        {
+          "name": "semtech_handle_urc_ktcp_srvreq",
+          "file": "modem/src/cell_modem_semtech.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "socket_process_urc_incoming_connection",
+          "file": "cellular/src/cell_socket.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "socket_close_wrapper",
+          "file": "cellular/src/cell_socket.c",
+          "stack_bytes": 16
+        },
+        {
+          "name": "quectel_socket_close",
+          "file": "modem/src/cell_modem_quectel.c",
+          "stack_bytes": 72
+        }
+      ]
+    }
+  ],
+  "recursive_cycles": [
+    [
+      {
+        "name": "at_command_request",
+        "file": "modem/src/cell_at.c"
+      },
+      {
+        "name": "at_get_first_solicited_line",
+        "file": "modem/src/cell_at.c"
+      },
+      {
+        "name": "urc_parse_unsolicited_response",
+        "file": "modem/src/cell_urc.c"
+      },
+      {
+        "name": "parse_urc_cdsi",
+        "file": "modem/src/cell_urc.c"
+      },
+      {
+        "name": "quectel_handle_urc_socket_incoming",
+        "file": "modem/src/cell_modem_quectel.c"
+      },
+      {
+        "name": "socket_process_urc_incoming_connection",
+        "file": "cellular/src/cell_socket.c"
+      },
+      {
+        "name": "socket_close_wrapper",
+        "file": "cellular/src/cell_socket.c"
+      },
+      {
+        "name": "quectel_socket_close",
+        "file": "modem/src/cell_modem_quectel.c"
+      },
+      {
+        "name": "at_command_request",
+        "file": "modem/src/cell_at.c"
+      }
+    ],
+    [
+      {
+        "name": "at_command_request",
+        "file": "modem/src/cell_at.c"
+      },
+      {
+        "name": "at_get_first_solicited_line",
+        "file": "modem/src/cell_at.c"
+      },
+      {
+        "name": "urc_parse_unsolicited_response",
+        "file": "modem/src/cell_urc.c"
+      },
+      {
+        "name": "parse_urc_cdsi",
+        "file": "modem/src/cell_urc.c"
+      },
+      {
+        "name": "quectel_handle_urc_socket_incoming",
+        "file": "modem/src/cell_modem_quectel.c"
+      },
+      {
+        "name": "socket_process_urc_incoming_connection",
+        "file": "cellular/src/cell_socket.c"
+      },
+      {
+        "name": "socket_close_wrapper",
+        "file": "cellular/src/cell_socket.c"
+      },
+      {
+        "name": "semtech_socket_close",
+        "file": "modem/src/cell_modem_semtech.c"
+      },
+      {
+        "name": "get_tcp_socket_status",
+        "file": "modem/src/cell_modem_semtech.c"
+      },
+      {
+        "name": "at_command_request",
+        "file": "modem/src/cell_at.c"
+      }
+    ],
+    [
+      {
+        "name": "at_command_request",
+        "file": "modem/src/cell_at.c"
+      },
+      {
+        "name": "at_get_first_solicited_line",
+        "file": "modem/src/cell_at.c"
+      },
+      {
+        "name": "urc_parse_unsolicited_response",
+        "file": "modem/src/cell_urc.c"
+      },
+      {
+        "name": "parse_urc_cdsi",
+        "file": "modem/src/cell_urc.c"
+      },
+      {
+        "name": "quectel_handle_urc_socket_incoming",
+        "file": "modem/src/cell_modem_quectel.c"
+      },
+      {
+        "name": "socket_process_urc_incoming_connection",
+        "file": "cellular/src/cell_socket.c"
+      },
+      {
+        "name": "socket_close_wrapper",
+        "file": "cellular/src/cell_socket.c"
+      },
+      {
+        "name": "semtech_socket_close",
+        "file": "modem/src/cell_modem_semtech.c"
+      },
+      {
+        "name": "tcp_close",
+        "file": "modem/src/cell_modem_semtech.c"
+      },
+      {
+        "name": "at_command_request",
+        "file": "modem/src/cell_at.c"
+      }
+    ],
+    [
+      {
+        "name": "at_command_request",
+        "file": "modem/src/cell_at.c"
+      },
+      {
+        "name": "at_get_first_solicited_line",
+        "file": "modem/src/cell_at.c"
+      },
+      {
+        "name": "urc_parse_unsolicited_response",
+        "file": "modem/src/cell_urc.c"
+      },
+      {
+        "name": "parse_urc_cdsi",
+        "file": "modem/src/cell_urc.c"
+      },
+      {
+        "name": "quectel_handle_urc_socket_incoming",
+        "file": "modem/src/cell_modem_quectel.c"
+      },
+      {
+        "name": "socket_process_urc_incoming_connection",
+        "file": "cellular/src/cell_socket.c"
+      },
+      {
+        "name": "socket_close_wrapper",
+        "file": "cellular/src/cell_socket.c"
+      },
+      {
+        "name": "semtech_socket_close",
+        "file": "modem/src/cell_modem_semtech.c"
+      },
+      {
+        "name": "tcp_delete",
+        "file": "modem/src/cell_modem_semtech.c"
+      },
+      {
+        "name": "at_command_request",
+        "file": "modem/src/cell_at.c"
+      }
+    ]
+  ],
+  "search_algorithm": "cached SCC suffixes",
+  "cycle_reporting": "representative cycles",
+  "truncated": false,
+  "entry_functions": [
+    {
+      "name": "cell_cellular_info_get",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_com_set_reset_pin",
+      "file": "com/src/cell_com.c"
+    },
+    {
+      "name": "cell_connect",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_context_create",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_dfota_abort",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_dfota_activate",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_dfota_start",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_dfota_write",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_driver_uart_irq_handler",
+      "file": "com/src/cell_com.c"
+    },
+    {
+      "name": "cell_init",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_log_config",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_modem_info_get",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_network_info_get",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_psm_settings_get",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_service_status_get",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_simcard_info_get",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_socket_close",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_socket_create",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_socket_receive",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_socket_send",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_socket_verify_data",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_startup",
+      "file": "cellular/src/cell_task.c"
+    },
+    {
+      "name": "cell_task",
+      "file": "cellular/src/cell_task.c"
+    },
+    {
+      "name": "cell_test",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "common_time_get",
+      "file": "modem/src/cell_modem_common.c"
+    },
+    {
+      "name": "connection_timer_callback",
+      "file": "cellular/src/cell_connect.c"
+    },
+    {
+      "name": "inactive_timer_callback",
+      "file": "cellular/src/cell_socket.c"
+    },
+    {
+      "name": "quectel_socket_query_service_status",
+      "file": "modem/src/cell_modem_quectel.c"
+    },
+    {
+      "name": "timer_callback",
+      "file": "cellular/src/cell_dfota.c"
+    }
+  ],
+  "start_mode": "roots (no incoming edges)",
+  "max_depth": 651,
+  "max_expanded_paths": 9223372036854775807,
+  "missing_stack_bytes": 0,
+  "path_kind": "simple (no repeated function)",
+  "unresolved_nodes": [
+    {
+      "name": "at_parser_time_get",
+      "file": "modem/src/cell_modem_common.c"
+    },
+    {
+      "name": "cell_cellular_info_get",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_com_init",
+      "file": "com/src/cell_com.c"
+    },
+    {
+      "name": "cell_com_notify_task_on_rxne",
+      "file": "cellular/src/cell_task.c"
+    },
+    {
+      "name": "cell_com_set_reset_pin",
+      "file": "com/src/cell_com.c"
+    },
+    {
+      "name": "cell_connect",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_context_create",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_dfota_abort",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_dfota_activate",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_dfota_start",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_dfota_write",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_driver_init",
+      "file": "com/src/cell_driver_interface.c"
+    },
+    {
+      "name": "cell_driver_modem_reset",
+      "file": "com/src/cell_driver_interface.c"
+    },
+    {
+      "name": "cell_driver_uart_irq_handler",
+      "file": "com/src/cell_com.c"
+    },
+    {
+      "name": "cell_init",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_log_config",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_log_set_level",
+      "file": "cellular/src/cell_log.c"
+    },
+    {
+      "name": "cell_modem_info_get",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_network_info_get",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_psm_settings_get",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_service_status_get",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_simcard_info_get",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_socket_close",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_socket_create",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_socket_receive",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_socket_send",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_socket_verify_data",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_test",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_test_notify_custom_at",
+      "file": "cellular/src/cell_test.c"
+    },
+    {
+      "name": "common_time_get",
+      "file": "modem/src/cell_modem_common.c"
+    },
+    {
+      "name": "dfota_notify_activate",
+      "file": "cellular/src/cell_dfota.c"
+    },
+    {
+      "name": "dfota_notify_cancel",
+      "file": "cellular/src/cell_dfota.c"
+    },
+    {
+      "name": "dfota_notify_start",
+      "file": "cellular/src/cell_dfota.c"
+    },
+    {
+      "name": "dfota_notify_write",
+      "file": "cellular/src/cell_dfota.c"
+    },
+    {
+      "name": "monitoring_notify_get_cellular_info",
+      "file": "cellular/src/cell_monitoring.c"
+    },
+    {
+      "name": "monitoring_notify_get_modem_info",
+      "file": "cellular/src/cell_monitoring.c"
+    },
+    {
+      "name": "monitoring_notify_get_network_info",
+      "file": "cellular/src/cell_monitoring.c"
+    },
+    {
+      "name": "monitoring_notify_get_psm_setting",
+      "file": "cellular/src/cell_monitoring.c"
+    },
+    {
+      "name": "monitoring_notify_get_service_status",
+      "file": "cellular/src/cell_monitoring.c"
+    },
+    {
+      "name": "monitoring_notify_get_simcard_info",
+      "file": "cellular/src/cell_monitoring.c"
+    },
+    {
+      "name": "socket_notify_close",
+      "file": "cellular/src/cell_socket.c"
+    },
+    {
+      "name": "socket_notify_create",
+      "file": "cellular/src/cell_socket.c"
+    },
+    {
+      "name": "socket_notify_recv",
+      "file": "cellular/src/cell_socket.c"
+    },
+    {
+      "name": "socket_notify_send",
+      "file": "cellular/src/cell_socket.c"
+    },
+    {
+      "name": "socket_notify_verify_data",
+      "file": "cellular/src/cell_socket.c"
+    }
+  ],
+  "ambiguous_nodes": [
+    {
+      "name": "at_parser_time_get",
+      "file": "modem/src/cell_modem_common.c"
+    },
+    {
+      "name": "cell_cellular_info_get",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_com_init",
+      "file": "com/src/cell_com.c"
+    },
+    {
+      "name": "cell_com_notify_task_on_rxne",
+      "file": "cellular/src/cell_task.c"
+    },
+    {
+      "name": "cell_com_set_reset_pin",
+      "file": "com/src/cell_com.c"
+    },
+    {
+      "name": "cell_connect",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_context_create",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_dfota_abort",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_dfota_activate",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_dfota_start",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_dfota_write",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_driver_init",
+      "file": "com/src/cell_driver_interface.c"
+    },
+    {
+      "name": "cell_driver_modem_reset",
+      "file": "com/src/cell_driver_interface.c"
+    },
+    {
+      "name": "cell_driver_uart_irq_handler",
+      "file": "com/src/cell_com.c"
+    },
+    {
+      "name": "cell_init",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_log_config",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_log_set_level",
+      "file": "cellular/src/cell_log.c"
+    },
+    {
+      "name": "cell_modem_info_get",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_network_info_get",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_psm_settings_get",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_service_status_get",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_simcard_info_get",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_socket_close",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_socket_create",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_socket_receive",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_socket_send",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_socket_verify_data",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_test",
+      "file": "cellular/src/cell_api.c"
+    },
+    {
+      "name": "cell_test_notify_custom_at",
+      "file": "cellular/src/cell_test.c"
+    },
+    {
+      "name": "common_time_get",
+      "file": "modem/src/cell_modem_common.c"
+    },
+    {
+      "name": "dfota_notify_activate",
+      "file": "cellular/src/cell_dfota.c"
+    },
+    {
+      "name": "dfota_notify_cancel",
+      "file": "cellular/src/cell_dfota.c"
+    },
+    {
+      "name": "dfota_notify_start",
+      "file": "cellular/src/cell_dfota.c"
+    },
+    {
+      "name": "dfota_notify_write",
+      "file": "cellular/src/cell_dfota.c"
+    },
+    {
+      "name": "monitoring_notify_get_cellular_info",
+      "file": "cellular/src/cell_monitoring.c"
+    },
+    {
+      "name": "monitoring_notify_get_modem_info",
+      "file": "cellular/src/cell_monitoring.c"
+    },
+    {
+      "name": "monitoring_notify_get_network_info",
+      "file": "cellular/src/cell_monitoring.c"
+    },
+    {
+      "name": "monitoring_notify_get_psm_setting",
+      "file": "cellular/src/cell_monitoring.c"
+    },
+    {
+      "name": "monitoring_notify_get_service_status",
+      "file": "cellular/src/cell_monitoring.c"
+    },
+    {
+      "name": "monitoring_notify_get_simcard_info",
+      "file": "cellular/src/cell_monitoring.c"
+    },
+    {
+      "name": "socket_notify_close",
+      "file": "cellular/src/cell_socket.c"
+    },
+    {
+      "name": "socket_notify_create",
+      "file": "cellular/src/cell_socket.c"
+    },
+    {
+      "name": "socket_notify_recv",
+      "file": "cellular/src/cell_socket.c"
+    },
+    {
+      "name": "socket_notify_send",
+      "file": "cellular/src/cell_socket.c"
+    },
+    {
+      "name": "socket_notify_verify_data",
+      "file": "cellular/src/cell_socket.c"
+    }
+  ],
+  "input_warnings": []
+}
